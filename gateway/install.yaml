@@ -1,0 +1,40 @@
+# Arcana Plugin - Install Manifest
+# MCP 서버 및 커스텀 도구 설치 매니페스트
+
+mcp_servers:
+  - name: context7
+    description: "게임 엔진 및 라이브러리 공식 문서 검색"
+    config: mcp/context7.json
+    scope: user
+    required: true
+
+custom_tools:
+  - name: balancing-simulator
+    description: "천칭/증강/시너지/난이도 곡선 밸런싱 시뮬레이션"
+    source: tools/balancing-simulator.py
+    required: true
+
+  - name: game-data-schema
+    description: "캐릭터/스킬/증강/몬스터/보스 JSON 스키마 생성"
+    source: tools/game-data-schema.py
+    required: true
+
+  - name: sound-asset-catalog
+    description: "BGM/SFX 에셋 목록 및 상태 관리"
+    source: tools/sound-asset-catalog.py
+    required: false
+
+  - name: art-pipeline-guide
+    description: "Spine 애니메이션-게임엔진 연동, 카드 이미지 규격"
+    source: tools/art-pipeline-guide.py
+    required: false
+
+  - name: generate-image-bridge
+    description: "Gemini 기반 이미지 생성 브릿지 (아트 컨셉, 캐릭터, 배경 참고 이미지)"
+    source: tools/generate-image-bridge.py
+    required: false
+
+  - name: check-mermaid-bridge
+    description: "Mermaid 다이어그램 문법 검증 브릿지"
+    source: tools/check-mermaid-bridge.py
+    required: false

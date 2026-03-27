@@ -1,0 +1,10 @@
+tools:
+  - id: diagram_validate
+    description: "Mermaid 다이어그램 문법 검증 도구. 시스템 플로우 다이어그램과 마일스톤 간트 차트를 작성 후 문법 오류를 사전에 검출한다."
+    usage: "시스템 플로우 다이어그램 또는 마일스톤 간트 차트 Mermaid 코드 작성 후 검증 시 호출"
+    input:
+      mermaid_code: "검증할 Mermaid 다이어그램 코드 문자열"
+    output:
+      valid: "boolean — 문법 유효성"
+      errors: "list — 오류 메시지 목록 (valid=false 시)"
+    runtime_ref: "gateway/runtime-mapping.yaml#tool_mapping.diagram_validate"

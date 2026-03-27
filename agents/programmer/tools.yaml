@@ -1,0 +1,22 @@
+# Programmer Agent Tools
+
+tools:
+  - name: doc_search
+    description: "Unity Scripting API, 게임 프로그래밍 패턴, ScriptableObject, DOTween 공식 문서 검색"
+    mapping: "gateway/runtime-mapping.yaml#tool_mapping.doc_search"
+    usage:
+      - "Unity C# 핵심 클래스 및 라이프사이클 API 조회"
+      - "State Machine / Observer / Command 패턴 구현 레퍼런스 조회"
+      - "Unity ScriptableObject 데이터 에셋 관리 패턴 조회"
+      - "DOTween Tween 애니메이션 API 조회"
+      - "Unity 데이터 직렬화 (JsonUtility, Newtonsoft.Json) 문서 조회"
+
+  - name: game_data_schema
+    description: "캐릭터/스킬/증강/몬스터/보스 JSON 스키마 템플릿 생성 및 데이터 유효성 검증"
+    mapping: "gateway/runtime-mapping.yaml#tool_mapping.game_data_schema"
+    usage:
+      - "CharacterData JSON 스키마 생성 (id, name, stats, skills)"
+      - "CardData JSON 스키마 생성 (id, name, direction, cost, effect, synergy)"
+      - "AugmentData JSON 스키마 생성 (id, slot, type, value, formula)"
+      - "MonsterData JSON 스키마 생성 (id, hp, attack_patterns, phases)"
+      - "기존 데이터 시트 유효성 검증"

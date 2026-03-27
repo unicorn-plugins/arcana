@@ -1,0 +1,8 @@
+tools:
+  - name: diagram_validate
+    description: Mermaid 다이어그램 문법 검증 도구. UX 플로우 다이어그램의 Mermaid 문법 오류를 검사한다.
+    type: custom
+    source: tools/check-mermaid-bridge.py
+    actions:
+      - validate_mermaid
+    usage: UX 플로우 Mermaid 다이어그램 작성 후 문법 검증 시 호출

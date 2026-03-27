@@ -1,0 +1,22 @@
+tools:
+  - id: balancing_simulate
+    description: "천칭/증강/시너지/난이도 곡선 시뮬레이션 도구. 수치 변경 제안 전 반드시 호출하여 데이터 근거를 확보한다."
+    usage: "시뮬레이션 실행 시 호출. 극단 케이스(-3칸, +3칸) 반드시 포함."
+    input:
+      simulation_type: "simulate_libra | simulate_augmentation | simulate_difficulty | simulate_synergy"
+      parameters: "시뮬레이션 파라미터 딕셔너리"
+    output:
+      results: "시뮬레이션 결과 데이터"
+      chart: "ASCII 그래프 또는 표 형식 결과"
+    runtime_ref: "gateway/runtime-mapping.yaml#tool_mapping.balancing_simulate"
+
+  - id: game_data_schema
+    description: "캐릭터/스킬/증강/몬스터/보스 JSON 스키마 템플릿 생성 도구. 밸런싱 데이터를 Unity ScriptableObject에 매핑 가능한 구조로 출력한다."
+    usage: "데이터 시트 설계 완료 후 스키마 생성 시 호출"
+    input:
+      entity_type: "character | skill | augmentation | monster | boss"
+      fields: "스키마에 포함할 필드 목록"
+    output:
+      schema: "JSON Schema 문서"
+      sample: "예시 데이터 인스턴스"
+    runtime_ref: "gateway/runtime-mapping.yaml#tool_mapping.game_data_schema"

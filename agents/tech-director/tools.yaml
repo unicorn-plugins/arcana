@@ -1,0 +1,21 @@
+# Tech Director Agent Tools
+
+tools:
+  - name: doc_search
+    description: "Unity 2D, URP 2D Renderer, Spine-Unity, Addressables, 성능 최적화 공식 문서 검색"
+    mapping: "gateway/runtime-mapping.yaml#tool_mapping.doc_search"
+    usage:
+      - "Unity URP 2D Renderer 렌더링 파이프라인 설정 조회"
+      - "Spine-Unity 런타임 컴포넌트 및 API 문서 조회"
+      - "Unity Addressables 에셋 그룹/로딩 전략 문서 조회"
+      - "Unity Profiler 및 성능 최적화 가이드 조회"
+      - "JsonUtility vs Newtonsoft.Json 비교 문서 조회"
+
+  - name: art_pipeline
+    description: "Spine 애니메이션 ↔ Unity 연동 파이프라인 가이드 및 카드 이미지 규격 확인"
+    mapping: "gateway/runtime-mapping.yaml#tool_mapping.art_pipeline"
+    usage:
+      - "Spine 익스포트 설정 기준 확인 (atlas 해상도, 텍스처 팩킹)"
+      - "SkeletonAnimation 컴포넌트 설정 가이드 생성"
+      - "렌더링 레이어 구조 (배경/캐릭터/UI/이펙트) 가이드 생성"
+      - "카드 스프라이트 규격 (PPU, Pivot, 해상도) 확인"

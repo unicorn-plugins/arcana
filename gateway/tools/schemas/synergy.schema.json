@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Arcana Synergy Data",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "condition",
+    "effect"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "forward_set",
+        "reverse_set",
+        "mixed_set"
+      ]
+    },
+    "condition": {
+      "type": "string"
+    },
+    "effect": {
+      "type": "object"
+    }
+  }
+}

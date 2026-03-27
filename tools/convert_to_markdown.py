@@ -19,6 +19,10 @@ import base64
 import time
 import io
 from pathlib import Path
+from dotenv import load_dotenv
+
+# tools/.env 파일에서 환경변수 로드
+load_dotenv(Path(__file__).resolve().parent / ".env")
 
 from pptx import Presentation
 from pptx.util import Pt

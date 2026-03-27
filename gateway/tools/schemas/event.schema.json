@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Arcana Event Node Data",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "description",
+    "choices"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "text",
+          "effects"
+        ],
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "effects": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+tools:
+  - name: sound_catalog
+    description: BGM/SFX 에셋 목록 및 상태 관리. 사운드 에셋 카탈로그 생성, 갱신, 상태 추적에 활용.
+    runtime_ref: sound_catalog
+    usage: >
+      BGM 구성 계획 및 SFX 디자인 완료 후 manage_catalog 도구로 에셋 카탈로그를 생성/갱신.
+      에셋 ID, 유형(BGM/SFX), 파일명, 상태(계획/제작중/완료), 담당자를 관리.
+    examples:
+      - "BGM 6종 카탈로그 초기 등록"
+      - "SFX 에셋 상태 업데이트 (계획→제작중)"
+      - "전체 사운드 에셋 현황 조회"

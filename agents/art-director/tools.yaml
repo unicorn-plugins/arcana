@@ -1,0 +1,12 @@
+tools:
+  - name: generate_image
+    description: "비주얼 컨셉 참고 이미지 생성 (카드 프레임, 색상 팔레트, 아르누보 장식 패턴 샘플)"
+    mcp_server: generate_image
+    usage:
+      - "카드 프레임 샘플 생성 (메이저=금색 아르누보, 마이너=은색 아르누보)"
+      - "캐릭터별 배경 색상 팔레트 샘플 생성"
+      - "비주얼 아이덴티티 가이드용 무드보드 이미지 생성"
+
+# 근거: art-director 에이전트는 비주얼 가이드 수립 역할이므로
+# generate_image로 컨셉 참고 이미지를 생성하여 팀과 비주얼 방향성을 공유한다.
+# forbidden_actions: ["code_execute"] — 코드 실행 도구(Bash)는 사용 불가.

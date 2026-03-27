@@ -1,0 +1,9 @@
+# Router Agent Tools
+# 의도 분류 전용 에이전트 - 외부 도구 불필요
+# 키워드 추출 및 라우팅 로직은 AGENT.md에 내장된 규칙 기반으로 수행
+
+tools: []
+
+# 근거: router 에이전트는 분류 및 라우팅만 수행하며,
+# 파일 읽기/쓰기, 코드 실행, 이미지 생성 등의 외부 도구가 불필요하다.
+# forbidden_actions에 file_write, file_delete, code_execute, agent_delegate가 포함되어 있음.

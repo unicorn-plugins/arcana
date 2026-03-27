@@ -1,0 +1,7 @@
+---
+description: 전투 모션 스펙 및 컷신 시퀀스
+---
+
+~/.claude/plugins/cache/**/arcana/ 하위 최신 버전 디렉토리의 skills/animation/SKILL.md 파일을 읽고 실행하세요.
+
+ARGUMENTS: $ARGUMENTS

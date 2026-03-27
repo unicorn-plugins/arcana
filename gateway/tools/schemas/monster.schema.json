@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Arcana Monster Data",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "minorArcana",
+    "stats",
+    "skills"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "minorArcana": {
+      "type": "string",
+      "enum": [
+        "pentacles",
+        "swords",
+        "cups",
+        "wands"
+      ]
+    },
+    "stats": {
+      "type": "object",
+      "required": [
+        "attack",
+        "defense",
+        "hp"
+      ],
+      "properties": {
+        "attack": {
+          "type": "number"
+        },
+        "defense": {
+          "type": "number"
+        },
+        "hp": {
+          "type": "number"
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "patterns": {
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "specialCardDrop": {
+      "type": "string"
+    }
+  }
+}

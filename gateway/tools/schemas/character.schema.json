@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Arcana Character Data",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "arcana",
+    "role",
+    "baseStats",
+    "skills"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "캐릭터 고유 ID (예: fortune, justice)"
+    },
+    "name": {
+      "type": "string",
+      "description": "캐릭터 표시 이름"
+    },
+    "arcana": {
+      "type": "string",
+      "enum": [
+        "major",
+        "minor"
+      ],
+      "description": "메이저/마이너 아르카나"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "support",
+        "tank",
+        "dps",
+        "hybrid"
+      ],
+      "description": "전투 역할"
+    },
+    "baseStats": {
+      "type": "object",
+      "required": [
+        "attack",
+        "defense",
+        "hp"
+      ],
+      "properties": {
+        "attack": {
+          "type": "number",
+          "minimum": 0
+        },
+        "defense": {
+          "type": "number",
+          "minimum": 0
+        },
+        "hp": {
+          "type": "number",
+          "minimum": 1
+        }
+      }
+    },
+    "growthCurve": {
+      "type": "object",
+      "properties": {
+        "youth": {
+          "type": "number"
+        },
+        "adult": {
+          "type": "number"
+        },
+        "elder": {
+          "type": "number"
+        }
+      }
+    },
+    "skills": {
+      "type": "object",
+      "required": [
+        "forward",
+        "reverse",
+        "ultimate"
+      ],
+      "properties": {
+        "forward": {
+          "$ref": "#/definitions/skillRef"
+        },
+        "reverse": {
+          "$ref": "#/definitions/skillRef"
+        },
+        "ultimate": {
+          "$ref": "#/definitions/skillRef"
+        }
+      }
+    },
+    "passive": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "skillRef": {
+      "type": "object",
+      "required": [
+        "id",
+        "cost",
+        "target"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "cost": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "single_enemy",
+            "all_enemies",
+            "single_ally",
+            "all_allies",
+            "self"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "arcana",
+  "version": "1.0.0",
+  "description": "아르카나(Arcana) 게임 개발의 전 과정을 지원하는 역할별 AI 어시스턴트 플러그인. 13개 역할에 대해 전용 에이전트와 스킬을 제공하여 기획, 밸런싱, 아트, 사운드, 구현, QA까지 게임 개발 완료까지 지속 활용",
+  "author": {
+    "name": "Team Light Life"
+  },
+  "license": "MIT",
+  "keywords": ["game-dev", "unity", "2d", "roguelite", "card-game", "tarot", "team-assistant"]
+}

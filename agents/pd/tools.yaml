@@ -1,0 +1,11 @@
+tools:
+  - name: diagram_validate
+    description: Mermaid 다이어그램 문법 검증. 마일스톤 로드맵, 크로스 역할 의존성 다이어그램 작성 후 문법 오류 확인에 활용.
+    runtime_ref: diagram_validate
+    usage: >
+      마스터 기획서 또는 보고서에 포함할 Mermaid 다이어그램(gantt, flowchart, graph)을
+      작성한 후 validate_mermaid 도구로 문법 검증. 오류 발생 시 수정 후 재검증.
+    examples:
+      - "마일스톤 Gantt 차트 검증"
+      - "크로스 역할 의존성 flowchart 검증"
+      - "Q1~Q4 로드맵 다이어그램 검증"

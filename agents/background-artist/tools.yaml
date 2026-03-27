@@ -1,0 +1,12 @@
+tools:
+  - name: generate_image
+    description: "배경 컨셉 참고 이미지 생성 (스테이지 무드보드, 조명 샘플, 레이어 구성 시각화)"
+    mcp_server: generate_image
+    usage:
+      - "스테이지별 무드보드 이미지 생성 (색상+구조물+자연 요소 조합)"
+      - "조명 연출 before/after 비교 샘플 생성"
+      - "원경/중경/근경 레이어 구성 시각화 이미지 생성"
+
+# 근거: background-artist 에이전트는 배경 아트 기획 역할이므로
+# generate_image로 스테이지별 배경 컨셉 참고 이미지를 생성하여 팀과 분위기를 공유한다.
+# forbidden_actions: ["code_execute"] — 코드 실행 도구(Bash)는 사용 불가.

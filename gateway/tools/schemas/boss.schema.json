@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Arcana Boss Data",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "stage",
+    "phases"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "phase",
+          "skills"
+        ],
+        "properties": {
+          "phase": {
+            "type": "integer"
+          },
+          "hpThreshold": {
+            "type": "number"
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ultimateCondition": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
