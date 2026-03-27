@@ -30,6 +30,6 @@ user-invocable: true
 
 `resources/guides/combine-prompt.md`를 참조하여 프롬프트 조립
 
-## 워크플로우 
-ralph 모드로 수행  
+## 워크플로우  
+완료 보장이 필요하면 `/oh-my-claudecode:ralph`와 함께 사용
 1. 에이젼트 호출 -> Agent: art-director
