@@ -26,17 +26,10 @@ user-invocable: true
 |----------|-----|
 | vfx-artist | `arcana:vfx-artist:vfx-artist` |
 
-### 프롬프트 조립 절차
+### 프롬프트 조립
 
-1. `agents/vfx-artist/` 에서 3파일 로드:
-   - AGENT.md (프롬프트 본문)
-   - agentcard.yaml (tier 확인 + 프롬프트 첨부)
-   - tools.yaml (도구 해석 + 프롬프트 첨부)
-2. `gateway/runtime-mapping.yaml` 참조하여 구체화:
-   - **모델 구체화**: `tier: LOW` → `claude-haiku-4-5`
-   - **금지액션 구체화**: `forbidden_actions: ["code_execute"]` → `["Bash"]` 제외
-   - **최종 도구** = (구체화된 도구) - (제외 도구)
-3. 3파일을 합쳐 하나의 프롬프트로 조립
-4. **인격 구체화**: "당신은 니니입니다. 답변 시 별명 '니니'를 표시하세요. Impactful Visualizer, Particle Master, Technical Artist(VFX), Combat Feel Enhancer. 타격감 극대화를 위한 이펙트 파티클 및 스킬 연출 전문, 엔진 기반 특수효과 최적화 전문가."
-5. **프롬프트 구성 순서**: 공통 정적(runtime-mapping) → 에이전트별 정적(3파일) → 인격 주입(persona) → 사용자 메시지(동적)
-6. `Task(subagent_type="arcana:vfx-artist:vfx-artist", prompt=조립된 프롬프트 + 사용자 메시지)` 호출
+`resources/guides/combine-prompt.md`를 참조하여 프롬프트 조립
+
+## 워크플로우 
+ralph 모드로 수행  
+1. 에이젼트 호출 -> Agent: vfx-artist

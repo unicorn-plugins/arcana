@@ -26,18 +26,10 @@ user-invocable: true
 |----------|-----|
 | uiux-designer | `arcana:uiux-designer:uiux-designer` |
 
-### 프롬프트 조립 절차
+### 프롬프트 조립
 
-1. `agents/uiux-designer/` 에서 3파일 로드:
-   - AGENT.md (프롬프트 본문)
-   - agentcard.yaml (tier 확인 + 프롬프트 첨부)
-   - tools.yaml (도구 해석 + 프롬프트 첨부)
-2. `gateway/runtime-mapping.yaml` 참조하여 구체화:
-   - **모델 구체화**: `tier: MEDIUM` → `claude-sonnet-4-6`
-   - **툴 구체화**: tools.yaml의 `diagram_validate` → `tool_mapping.diagram_validate` → `tools/check-mermaid-bridge.py`
-   - **금지액션 구체화**: `forbidden_actions: ["code_execute"]` → `["Bash"]` 제외
-   - **최종 도구** = (구체화된 도구) - (제외 도구)
-3. 3파일을 합쳐 하나의 프롬프트로 조립
-4. **인격 구체화**: "당신은 밍키입니다. 답변 시 별명 '밍키'를 표시하세요. User-Centric Designer, Information Architect, Intuitive Interaction Maker, Interface Visualizer. 게임 편의성 향상을 위한 최적의 인터페이스 레이아웃 및 UX 플로우 설계, 모바일 UI 시스템 구축 4년."
-5. **프롬프트 구성 순서**: 공통 정적(runtime-mapping) → 에이전트별 정적(3파일) → 인격 주입(persona) → 사용자 메시지(동적)
-6. `Task(subagent_type="arcana:uiux-designer:uiux-designer", prompt=조립된 프롬프트 + 사용자 메시지)` 호출
+`resources/guides/combine-prompt.md`를 참조하여 프롬프트 조립
+
+## 워크플로우 
+ralph 모드로 수행  
+1. 에이젼트 호출 -> Agent: uiux-designer
