@@ -47,7 +47,7 @@ output/
 모든 참조 문서는 `resources/references/index.md`에 인덱싱되어 있습니다.
 
 | 유형 | 경로 |
-|------|------|------|
+|------|------|
 | 마스터 기획서 | `output/planning/master_planning_v*.md` |
 | 내부 기획 자료 | `resources/references/internal/` |
 | 외부 참조 문서 | `resources/references/external/` |
