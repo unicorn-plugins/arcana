@@ -37,20 +37,3 @@ handoff:
     reason: "테스트 수행은 QA 전담"
 
 output_dir: "output/planning/"
-
-references:
-  internal:
-    - "resources/초기자료/스토리세계관컨셉_V1_장보성.md"
-    - "resources/초기자료/전투컨셉기획서_V4_장보성.md"
-    - "resources/초기자료/스킬컨셉기획서_V2_장보성.md"
-    - "resources/초기자료/천칭컨셉기획서_V1_이채연.md"
-    - "resources/초기자료/증강시스템_V2_김주연.md"
-    - "resources/초기자료/플레이경험기획문서_V2_장보성.md"
-    - "resources/초기자료/몬스터컨셉기획서_V1_이채연.md"
-  external:
-    - "resources/references/external/balance-designer/slay_the_spire_balance_analysis.md"
-    - "resources/references/external/balance-designer/darkest_dungeon_design_analysis.md"
-    - "resources/references/external/balance-designer/game_balancing_theory.md"
-    - "resources/references/external/balance-designer/tarot_arcana_reference.md"
-    - "resources/references/external/balance-designer/unity_scriptableobject_guide.md"
-  index: "resources/references/index.md"

@@ -31,20 +31,20 @@
 | **B** (워크플로우) | 산출물 생성, 전체/단계별 분석, 시뮬레이션/설계/구현 요청, 보고서/가이드 작성, 명시적 워크플로우 요청 | "밸런싱 보고서 만들어줘", "전체 시뮬레이션 실행", "가이드 작성해줘" |
 
 **모드 A 실행:**
-1. `resources/references/index.md`에서 해당 역할 섹션의 문서 목록 확인
-2. 사용자 질문에 필요한 문서를 선택적으로 로드
-3. 문서 내용을 근거로 답변 생성 (출처 명시)
+1. 컨텍스트에 제공된 역할별/공통 참조 문서에서 사용자 질문에 필요한 내용을 찾는다
+2. 문서 내용을 근거로 답변 생성 (출처 명시)
 
 **모드 B 실행:**
 → Step 1부터 워크플로우 실행. 사용자 메시지가 특정 범위를 지정한 경우 해당 범위에 맞게 워크플로우를 조정한다.
 
-### Step 1: 참조 문서 인덱스 확인
+### Step 1: 참조 문서 검토
 
-`resources/references/index.md`의 "Balance Designer" 섹션을 읽고 필요한 내부/외부 문서를 로드한다.
+컨텍스트의 **공통 참조 문서**와 **역할별 참조 문서**를 검토하여
+작업에 필요한 정보(마스터 기획서, 밸런싱 레퍼런스, 내부 기획서 등)를 파악한다.
 
 ### Step 2: 세계관/천칭/캐릭터/밸런싱 분석
 
-마스터 기획서의 목차를 읽고 아래 주제 관련 챕터를 파악하여 분석한다:
+컨텍스트의 마스터 기획서에서 아래 주제 관련 챕터를 파악하여 분석한다:
 - 세계관: 운명의 교단 vs 꿈을 쫓는 자 vs 중립 세력 구조 파악
 - 천칭 시스템: 정방향 3%/6%/12% vs 역방향 8%/16%/32% 파라미터 확인
 - 캐릭터: Fortune, Justice, Magician, The Fool, Hangedman, Judgment, Devil 스탯
@@ -60,24 +60,24 @@
 
 ### Step 3: StS/DD 레퍼런스 참조
 
-Slay the Spire 밸런싱 분석:
+컨텍스트의 Slay the Spire 밸런싱 분석 레퍼런스 참조:
 - 카드 밸런싱 KPI 기준 확보 (2x2+2 매트릭스)
 - 덱 시너지 강도 측정 기준 적용
 
-Darkest Dungeon 디자인 분석:
+컨텍스트의 Darkest Dungeon 디자인 분석 레퍼런스 참조:
 - 스트레스/사기 시스템을 천칭 리스크-리턴 설계에 적용
 - 하이리스크-하이리턴 패턴 검증 기준 확보
 
 ### Step 4: 밸런싱 이론 적용
 
-`resources/references/external/balance-designer/game_balancing_theory.md` 로드:
+컨텍스트의 게임 밸런싱 이론 문서 참조:
 - 확률/기대값 계산 방법론 적용
 - 몬테카를로 시뮬레이션 설계 원칙 확인
 - 난이도 곡선 톱니 패턴 설계 기준 적용
 
 ### Step 5: 타로 원전 검증
 
-`resources/references/external/balance-designer/tarot_arcana_reference.md` 로드:
+컨텍스트의 타로 아르카나 레퍼런스 참조:
 - 22 메이저 아르카나 의미/상징과 캐릭터 권능 정합성 검증
 - 56 마이너 아르카나 연계 세계관 일관성 확인
 - 캐릭터 관계도 검증: 운명의 교단 vs 꿈을 쫓는 자 vs 중립
@@ -123,7 +123,7 @@ Darkest Dungeon 디자인 분석:
 
 ### Step 8: ScriptableObject 구조 설계
 
-`resources/references/external/balance-designer/unity_scriptableobject_guide.md` 로드:
+컨텍스트의 Unity ScriptableObject 가이드 참조:
 - 밸런싱 데이터를 Unity ScriptableObject 에셋으로 관리하는 구조 설계
 - 캐릭터/스킬/증강/몬스터/보스 SO 필드 정의
 

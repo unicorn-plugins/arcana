@@ -190,11 +190,11 @@
 
 ---
 
-## 3. 역할별 참조 가이드
+## 3. 역할별 참조
 
 > 각 역할에 필요한 내부/외부 문서를 빠르게 찾기 위한 가이드.
 
-### 3.1 PD (Project Director & Sound Director — 주디)
+### pd
 
 **내부문서:**
 - `resources/references/internal/컨셉 문서/게임컨셉기획서_V0_장보성.md` — 게임 전체 컨셉
@@ -202,10 +202,10 @@
 - `resources/references/internal/비주얼 문서/모션이펙트제안서_V0_김주연.md` — 사운드-모션 싱크 기준
 
 **외부문서:**
-- `resources/references/external/pd/` — 전체 3종
-- `resources/references/external/sound-director/` — 전체 3종
+- `resources/references/external/pd/` 
+- `resources/references/external/sound-director/` 
 
-### 3.2 PM (Project Manager — 체리)
+### project-manager
 
 **내부문서:**
 - `resources/references/internal/시스템 문서/메인시스템_V2_이채연.md` — 코어 루프, 메타 루프
@@ -214,9 +214,9 @@
 - `resources/references/internal/컨셉 문서/사건컨셉기획서_V0_장보성.md` — 사건 노드 스코프
 
 **외부문서:**
-- `resources/references/external/project-manager/` — 전체 3종
+- `resources/references/external/project-manager/`
 
-### 3.3 Balance Designer (밸런스 디자이너 — 보스)
+### balance-designer
 
 **내부문서:**
 - `resources/references/internal/컨셉 문서/스토리세계관컨셉_V1_장보성.md` — 세계관 정합성 기준
@@ -228,9 +228,9 @@
 - `resources/references/internal/컨셉 문서/몬스터컨셉기획서_V1_이채연.md` — 몬스터 스탯/패턴
 
 **외부문서:**
-- `resources/references/external/balance-designer/` — 전체 5종
+- `resources/references/external/balance-designer/`
 
-### 3.4 AD (Art Director — 송이)
+### art-director
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/아트컨셉_V1_이채연.md` — 전체 아트 방향성
@@ -238,9 +238,9 @@
 - `resources/references/internal/비주얼 문서/카드컨셉문서_V2_김주연.md` — 카드 레이아웃 규칙
 
 **외부문서:**
-- `resources/references/external/art-director/` — 전체 4종
+- `resources/references/external/art-director/`
 
-### 3.5 Character Artist (아트 트리오)
+### character-artist
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/캐릭터비주얼컨셉_V1_이채연.md` — 캐릭터별 비주얼 설정
@@ -249,18 +249,18 @@
 - `resources/references/internal/컨셉 문서/몬스터컨셉기획서_V1_이채연.md` — 보스/몬스터 디자인
 
 **외부문서:**
-- `resources/references/external/character-artist/` — 전체 4종
+- `resources/references/external/character-artist/`
 
-### 3.6 Background Artist (배경 아티스트 — 령)
+### background-artist
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/배경컨셉_V0_이채연.md` — 4스테이지 배경 방향성
 - `resources/references/internal/컨셉 문서/스토리세계관컨셉_V1_장보성.md` — 지역 세계관 설정
 
 **외부문서:**
-- `resources/references/external/background-artist/` — 전체 4종
+- `resources/references/external/background-artist/`
 
-### 3.7 Animator (모션 듀오)
+### animator
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/모션이펙트제안서_V0_김주연.md` — 모션 이펙트 방향
@@ -268,18 +268,18 @@
 - `resources/references/internal/비주얼 문서/캐릭터비주얼컨셉_V1_이채연.md` — 캐릭터 동작 기준
 
 **외부문서:**
-- `resources/references/external/animator/` — 전체 4종
+- `resources/references/external/animator/`
 
-### 3.8 UIUX Designer (밍키)
+### uiux-designer
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/UI기획서_V6_장보성.md` — UI 레이아웃/HUD 구조
 - `resources/references/internal/비주얼 문서/카드컨셉문서_V2_김주연.md` — 카드 UI 규격
 
 **외부문서:**
-- `resources/references/external/uiux-designer/` — 전체 4종
+- `resources/references/external/uiux-designer/`
 
-### 3.9 VFX Artist (니니)
+### vfx-artist
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/모션이펙트제안서_V0_김주연.md` — 이펙트 연출 방향
@@ -287,18 +287,18 @@
 - `resources/references/internal/컨셉 문서/전투컨셉기획서_V4_장보성.md` — 전투 타격감 기준
 
 **외부문서:**
-- `resources/references/external/vfx-artist/` — 전체 4종
+- `resources/references/external/vfx-artist/`
 
-### 3.10 TD (Tech Director — 우디)
+### tech-director
 
 **내부문서:**
 - `resources/references/internal/시스템 문서/메인시스템_V2_이채연.md` — 기술 요구사항 파악
 - `resources/references/internal/비주얼 문서/연출컨셉문서_V1_이채연.md` — 렌더링 파이프라인 설계
 
 **외부문서:**
-- `resources/references/external/tech-director/` — 전체 6종
+- `resources/references/external/tech-director/`
 
-### 3.11 Programmer (진)
+### programmer
 
 **내부문서:**
 - `resources/references/internal/컨셉 문서/전투컨셉기획서_V4_장보성.md` — 전투 로직 구현
@@ -308,25 +308,25 @@
 - `resources/references/internal/시스템 문서/증강시스템_V2_김주연.md` — 증강 시스템 구현
 
 **외부문서:**
-- `resources/references/external/programmer/` — 전체 5종
+- `resources/references/external/programmer/`
 
-### 3.12 QA Engineer (보니)
+### qa-engineer
 
 **내부문서:**
 - `resources/references/internal/컨셉 문서/전투컨셉기획서_V4_장보성.md` — 전투 테스트 기준
 - `resources/references/internal/시스템 문서/시너지시스템_V2_김주연.md` — 시너지 검증 기준
 
 **외부문서:**
-- `resources/references/external/qa-engineer/` — 전체 4종
+- `resources/references/external/qa-engineer/`
 
-### 3.13 Sound Director (주디 — PD 겸임)
+### sound-director
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/모션이펙트제안서_V0_김주연.md` — 사운드-이펙트 싱크
 - `resources/references/internal/비주얼 문서/연출컨셉문서_V1_이채연.md` — 연출 사운드 기준
 
 **외부문서:**
-- `resources/references/external/sound-director/` — 전체 3종
+- `resources/references/external/sound-director/`
 
 ---
 
@@ -335,4 +335,3 @@
 | 문서명 | 경로 | 설명 |
 |--------|------|------|
 | 마스터 기획서 | `output/planning/master_planning_v*.md` | 최신 버전 참조 (전 역할 공통) |
-| 데이터 테이블 | `resources/references/internal/데이터 테이블/` | CHA/MON/SKL 마스터 데이터 |

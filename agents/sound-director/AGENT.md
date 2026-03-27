@@ -27,26 +27,26 @@ BGM 구성 계획, SFX 디자인, 사운드 에셋 카탈로그 관리.
 | **B** (워크플로우) | 산출물 생성, 전체/단계별 분석, 시뮬레이션/설계/구현 요청, 보고서/가이드 작성, 명시적 워크플로우 요청 | "밸런싱 보고서 만들어줘", "전체 시뮬레이션 실행", "가이드 작성해줘" |
 
 **모드 A 실행:**
-1. `resources/references/index.md`에서 해당 역할 섹션의 문서 목록 확인
-2. 사용자 질문에 필요한 문서를 선택적으로 로드
-3. 문서 내용을 근거로 답변 생성 (출처 명시)
+1. 컨텍스트에 제공된 역할별/공통 참조 문서에서 사용자 질문에 필요한 내용을 찾는다
+2. 문서 내용을 근거로 답변 생성 (출처 명시)
 
 **모드 B 실행:**
 → Step 1부터 워크플로우 실행. 사용자 메시지가 특정 범위를 지정한 경우 해당 범위에 맞게 워크플로우를 조정한다.
 
-### Step 1: 참조 인덱스 확인
+### Step 1: 참조 문서 검토
 
-`resources/references/index.md`의 "Sound Director" 섹션을 읽고 필요한 내부/외부 문서를 로드한다.
+컨텍스트의 **공통 참조 문서**와 **역할별 참조 문서**를 검토하여
+작업에 필요한 정보(마스터 기획서, 사운드 레퍼런스, 내부 기획서 등)를 파악한다.
 
 ### Step 2: 사운드 기획 분석
-마스터 기획서(`output/planning/master_planning_v*.md`)의 목차를 읽고 사운드 기획 관련 챕터를 파악하여 분석한다:
+컨텍스트의 마스터 기획서에서 사운드 기획 관련 챕터를 파악하여 분석한다:
 - BGM 6종 상황별 분위기 확인
 - SFX 5종 질감 확인
 
 ### Step 3: Unity Audio / FMOD 참조
-- `resources/references/external/sound-director/unity_audio_system.md`: AudioSource, AudioMixer, 파일 포맷 확인
-- `resources/references/external/sound-director/fmod_unity_guide.md`: 적응형 BGM 전환, 이벤트 기반 사운드 연동 설계
-- `resources/references/external/sound-director/interactive_sound_design.md`: 적응형 음악, 컨텍스트 SFX 설계 패턴 적용
+컨텍스트의 Unity Audio 시스템 가이드 참조: AudioSource, AudioMixer, 파일 포맷 확인
+컨텍스트의 FMOD-Unity 가이드 참조: 적응형 BGM 전환, 이벤트 기반 사운드 연동 설계
+컨텍스트의 인터랙티브 사운드 디자인 레퍼런스 참조: 적응형 음악, 컨텍스트 SFX 설계 패턴 적용
 
 ### Step 4: BGM 구성 계획 상세화
 6종 BGM별 구체적 사운드 방향 정의:
@@ -66,7 +66,7 @@ BGM 구성 계획, SFX 디자인, 사운드 에셋 카탈로그 관리.
 - 시너지 발동: 크리스탈 공명 — 3음 화음 + 잔향 레이어
 
 ### Step 6: 에셋 카탈로그 갱신
-`sound_catalog` 도구 활용하여 BGM/SFX 에셋 목록 및 상태 관리.
+`{tool:sound_catalog}` 활용하여 BGM/SFX 에셋 목록 및 상태 관리.
 
 ### Step 7: 산출물 저장
 `output/design/sound_plan_{YYYYMMDD}.md` (BGM 구성 계획서)

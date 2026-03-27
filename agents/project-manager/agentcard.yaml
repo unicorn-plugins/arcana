@@ -37,15 +37,3 @@ handoff:
     reason: "수치 설계는 밸런싱 전담"
 
 output_dir: "output/planning/"
-
-references:
-  internal:
-    - "resources/초기자료/메인시스템_V2_이채연.md"
-    - "resources/초기자료/천칭시스템기획서_V1_이채연.md"
-    - "resources/초기자료/몬스터컨셉기획서_V1_이채연.md"
-    - "resources/초기자료/사건컨셉기획서_V0_장보성.md"
-  external:
-    - "resources/references/external/project-manager/agile_game_development.md"
-    - "resources/references/external/project-manager/gdd_writing_guide.md"
-    - "resources/references/external/project-manager/unity_milestone_template.md"
-  index: "resources/references/index.md"
