@@ -48,7 +48,7 @@ user-invocable: true
 
 | 워크플로우 단계 | 활용 스킬 | 효과 |
 |----------------|----------|------|
-| 9장 분석 | `/oh-my-claudecode:analyze` | 체계적 분석 절차 |
+| 사운드 기획 분석 | `/oh-my-claudecode:analyze` | 체계적 분석 절차 |
 | BGM/SFX 상세화 | `ulw` 매직 키워드 | 병렬 실행 + 완료 보장 |
 | 에셋 카탈로그 검증 | `/oh-my-claudecode:ultraqa` | QA 순환 워크플로우 |
 
@@ -57,13 +57,13 @@ user-invocable: true
 > 아래 워크플로우는 에이전트가 Step 0에서 **모드 B**로 판단한 경우에만 실행된다.
 > 모드 A(참조 응답)인 경우, 에이전트가 참조 문서를 기반으로 직접 답변한다.
 
-### Phase 1: 참조 및 9장 분석 -> Agent: sound-director
+### Phase 1: 참조 및 사운드 기획 분석 -> Agent: sound-director
 이 Phase는 `/oh-my-claudecode:analyze`를 활용하여 수행.
-- **TASK**: `resources/references/index.md` Sound Director 섹션 확인 후, 마스터 기획서 9장(사운드 기획) 분석하여 BGM 6종 상황별 분위기 및 SFX 5종 질감 파악
+- **TASK**: `resources/references/index.md` Sound Director 섹션 확인 후, 마스터 기획서의 목차를 읽고 사운드 기획 관련 챕터를 분석하여 BGM 6종 상황별 분위기 및 SFX 5종 질감 파악
 - **EXPECTED OUTCOME**: BGM 6종 + SFX 5종 현황 요약 및 상세화 방향 도출
 - **MUST DO**: 외부문서 3종(unity_audio_system, fmod_unity_guide, interactive_sound_design) 참조하여 기술 연동 방식 병행 검토
-- **MUST NOT DO**: 마스터 기획서 9장 확인 전 사운드 설계 진행 금지
-- **CONTEXT**: `output/planning/master_planning_v*.md` 9장, `resources/초기자료/모션이펙트제안서_V0_김주연.md`, `resources/references/external/sound-director/`
+- **MUST NOT DO**: 마스터 기획서 사운드 기획 관련 챕터 확인 전 사운드 설계 진행 금지
+- **CONTEXT**: `output/planning/master_planning_v*.md` 사운드 기획 관련 챕터, `resources/초기자료/모션이펙트제안서_V0_김주연.md`, `resources/references/external/sound-director/`
 
 ### Phase 2: BGM/SFX 상세화 -> Agent: sound-director
 이 Phase는 `ulw` 매직 키워드를 활용하여 수행.
@@ -96,14 +96,14 @@ user-invocable: true
 | # | 금지 사항 |
 |---|----------|
 | 1 | 코드 실행 (`Bash` 도구 사용 금지) |
-| 2 | 마스터 기획서 9장에 없는 새로운 사운드 이벤트 임의 추가 |
+| 2 | 마스터 기획서 사운드 기획 챕터에 없는 새로운 사운드 이벤트 임의 추가 |
 | 3 | VFX-SFX 연동 구현 직접 수행 — vfx-artist에 핸드오프 |
 | 4 | 사운드 에셋 코드 연동 구현 직접 수행 — programmer에 핸드오프 |
 | 5 | 미완성 설계를 카탈로그에 "완료" 상태로 등록 |
 
 ## 완료 조건
 
-- [ ] 마스터 기획서 9장 분석 완료
+- [ ] 마스터 기획서 사운드 기획 관련 챕터 분석 완료
 - [ ] BGM 6종 구성 계획 상세화 완료
 - [ ] SFX 5종 질감 설계 완료
 - [ ] 사운드 에셋 카탈로그 생성/갱신 완료

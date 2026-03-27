@@ -50,11 +50,11 @@ user-invocable: true
 
 ### Phase 1: 기획 분석 → Agent: animator
 이 Phase는 `/oh-my-claudecode:analyze`를 활용하여 수행.
-- **TASK**: 마스터 기획서 8장(애니메이션 & 연출 기획) + 4장(캐릭터 스킬 모션) 분석하여 애니메이션 현황 파악
+- **TASK**: 마스터 기획서의 목차를 읽고 애니메이션/연출 기획 및 캐릭터 스킬 모션 관련 챕터를 분석하여 애니메이션 현황 파악
 - **EXPECTED OUTCOME**: 캐릭터별 모션 요구사항 정리 (정방향/역방향/궁극기/기본동작)
 - **MUST DO**: 4개 플레이어블 캐릭터(포춘/저스티스/매지션/더풀) 모든 모션 목록 수집
 - **MUST NOT DO**: 기획서에 없는 새로운 캐릭터 모션 임의 추가
-- **CONTEXT**: `output/planning/master_planning_v*.md` 8장, 4장
+- **CONTEXT**: `output/planning/master_planning_v*.md` 애니메이션/연출 기획 및 캐릭터 스킬 모션 관련 챕터
 
 ### Phase 2: 모션 스펙 작성 → Agent: animator
 이 Phase는 `ulw` 매직 키워드를 활용하여 수행.

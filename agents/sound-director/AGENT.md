@@ -38,8 +38,8 @@ BGM 구성 계획, SFX 디자인, 사운드 에셋 카탈로그 관리.
 
 `resources/references/index.md`의 "Sound Director" 섹션을 읽고 필요한 내부/외부 문서를 로드한다.
 
-### Step 2: 9장 분석
-마스터 기획서 `output/planning/master_planning_v*.md` 9장(사운드 기획) 분석:
+### Step 2: 사운드 기획 분석
+마스터 기획서(`output/planning/master_planning_v*.md`)의 목차를 읽고 사운드 기획 관련 챕터를 파악하여 분석한다:
 - BGM 6종 상황별 분위기 확인
 - SFX 5종 질감 확인
 

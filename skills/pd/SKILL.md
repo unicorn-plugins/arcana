@@ -60,7 +60,7 @@ user-invocable: true
 
 ### Phase 1: 현황 분석 -> Agent: pd
 이 Phase는 `/oh-my-claudecode:analyze`를 활용하여 수행.
-- **TASK**: `resources/references/index.md` PD 섹션 확인 후, 마스터 기획서 1장 + 전 챕터 헤더 스캔으로 프로젝트 전체 현황 파악
+- **TASK**: `resources/references/index.md` PD 섹션 확인 후, 마스터 기획서의 목차를 읽고 프로젝트 개요 관련 챕터 + 전 챕터 헤더 스캔으로 프로젝트 전체 현황 파악
 - **EXPECTED OUTCOME**: 현재 마일스톤 단계, 진행률, 주요 이슈 목록이 담긴 현황 요약
 - **MUST DO**: 마스터 기획서 최신 버전(`master_planning_v*.md` 중 최고 버전 번호) 참조
 - **MUST NOT DO**: 현황 파악 없이 의사결정 진행 금지

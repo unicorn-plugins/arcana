@@ -60,11 +60,11 @@ user-invocable: true
 
 ### Phase 1: 현황 분석 -> Agent: balance-designer
 이 Phase는 `/oh-my-claudecode:analyze`를 활용하여 수행.
-- **TASK**: 마스터 기획서 2장, 3.3장, 4장, 5장을 분석하여 현재 세계관 정합성 및 밸런싱 상태 파악
+- **TASK**: 마스터 기획서의 목차를 읽고 세계관, 천칭 시스템, 캐릭터, 밸런싱 설계 관련 챕터를 분석하여 현재 세계관 정합성 및 밸런싱 상태 파악
 - **EXPECTED OUTCOME**: 밸런싱 현황 보고서 (천칭 수치, 캐릭터 스탯, 세계관 정합성, 보스 수치 현황)
 - **MUST DO**: 기존 수치 데이터를 빠짐없이 수집. 타로 원전과의 정합성 확인 포함.
 - **MUST NOT DO**: 수치 변경 제안 없이 현황만 보고
-- **CONTEXT**: `output/planning/master_planning_v*.md` 2장, 3.3장, 4장, 5장
+- **CONTEXT**: `output/planning/master_planning_v*.md` 세계관, 천칭, 캐릭터, 밸런싱 관련 챕터
 
 ### Phase 2: 시뮬레이션 실행 -> Agent: balance-designer
 이 Phase는 `ulw` 매직 키워드를 활용하여 수행.
@@ -89,7 +89,7 @@ user-invocable: true
 | 1 | 모든 밸런싱 제안은 시뮬레이션 데이터 근거 필수 |
 | 2 | 기획서 원본 수치와 변경 수치를 병기하여 비교 가능하게 작성 |
 | 3 | 산출물은 `output/planning/`에 저장 |
-| 4 | 천칭 시스템 수치는 기획서 3.3장 파라미터 기준 |
+| 4 | 천칭 시스템 수치는 기획서 천칭 시스템 파라미터 기준 |
 | 5 | 타로 아르카나 레퍼런스로 세계관/캐릭터 권능 원전 정합성 검증 필수 |
 
 ## MUST NOT 규칙

@@ -61,9 +61,9 @@ Unity URP 2D + Spine + Addressables 기반 기술 스택을 확정하고,
 
 ### Phase 1: 기술 기획 분석 → Agent: tech-director
 이 Phase는 `/oh-my-claudecode:analyze`를 활용하여 수행.
-- **TASK**: `output/planning/master_planning_v*.md` 10장(기술 기획) 완독 후 기술 요구사항 추출
+- **TASK**: `output/planning/master_planning_v*.md` 목차를 읽고 기술 기획 관련 챕터를 완독 후 기술 요구사항 추출
 - **EXPECTED OUTCOME**: 기술 요구사항 목록 (렌더링 품질, 성능 목표, 플랫폼 타겟)
-- **MUST DO**: 3장(게임 시스템), 6.5장(렌더링), 8장(Spine 연동) 교차 참조
+- **MUST DO**: 게임 시스템, 렌더링, Spine 연동 관련 챕터 교차 참조
 - **MUST NOT DO**: 기획서 분석 전 기술 결정 금지
 - **CONTEXT**: `output/planning/master_planning_v*.md`
 

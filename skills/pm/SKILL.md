@@ -59,11 +59,11 @@ user-invocable: true
 
 ### Phase 1: 현황 분석 -> Agent: project-manager
 이 Phase는 `/oh-my-claudecode:analyze`를 활용하여 수행.
-- **TASK**: 마스터 기획서 1.4장(마일스톤)과 3장(게임 시스템 기획)을 분석하여 현재 일정 및 시스템 스펙 현황 파악
+- **TASK**: 마스터 기획서의 목차를 읽고 마일스톤 및 게임 시스템 기획 관련 챕터를 분석하여 현재 일정 및 시스템 스펙 현황 파악
 - **EXPECTED OUTCOME**: 현황 분석 보고서 (마일스톤 진행률, 미결 시스템 스펙, 리스크 목록)
 - **MUST DO**: 각 마일스톤의 완료 기준(Definition of Done)을 명확히 파악
 - **MUST NOT DO**: 현황 파악 없이 새 계획 작성 금지
-- **CONTEXT**: `output/planning/master_planning_v*.md` 1.4장, 3장
+- **CONTEXT**: `output/planning/master_planning_v*.md` 마일스톤 및 게임 시스템 관련 챕터
 
 ### Phase 2: WBS 및 스프린트 계획 수립 -> Agent: project-manager
 이 Phase는 `ulw` 매직 키워드를 활용하여 수행.
@@ -85,7 +85,7 @@ user-invocable: true
 
 | # | 규칙 |
 |---|------|
-| 1 | 모든 일정 계획은 마스터 기획서 1.4장 마일스톤 기준에 부합해야 함 |
+| 1 | 모든 일정 계획은 마스터 기획서 마일스톤 기준에 부합해야 함 |
 | 2 | WBS는 에픽→스토리→태스크 3단계로 분해하여 역할별 담당자를 명시 |
 | 3 | 스프린트 계획은 2주 단위로, 목표·백로그·담당자를 포함 |
 | 4 | 산출물은 반드시 `output/planning/`에 저장 |

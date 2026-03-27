@@ -70,11 +70,7 @@ arcana 플러그인의 모든 스킬 목록과 사용법을 안내한다. 18개 
 
 | 명령어 | 설명 |
 |--------|------|
-| (자동 활성화) | **core** — 자연어 요청을 13개 역할 에이전트로 자동 라우팅 |
-| `/arcana:setup` | **setup** — MCP 서버 및 커스텀 도구 설치 (최초 1회 실행) |
 | `/arcana:help` | **help** — 이 도움말 표시 |
-| `/arcana:add-ext-skill` | **add-ext-skill** — 외부 플러그인 스킬 연결 추가 |
-| `/arcana:remove-ext-skill` | **remove-ext-skill** — 외부 플러그인 스킬 연결 제거 |
 
 ---
 

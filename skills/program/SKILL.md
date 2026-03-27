@@ -60,7 +60,7 @@ ScriptableObject 데이터 에셋과 JSON/CSV 로더를 통해 데이터-로직 
 
 ### Phase 1: 시스템 기획 분석 → Agent: programmer
 이 Phase는 `/oh-my-claudecode:analyze`를 활용하여 수행.
-- **TASK**: `output/planning/master_planning_v*.md` 3장 전체 + 10.4장 완독 후 구현 요구사항 추출
+- **TASK**: `output/planning/master_planning_v*.md` 목차를 읽고 게임 시스템 기획 및 데이터 구조 관련 챕터를 완독 후 구현 요구사항 추출
 - **EXPECTED OUTCOME**: 구현 우선순위 목록 + 시스템별 수치 정리 (코스트, 천칭 칸 수치, 드로우 수 등)
 - **MUST DO**: 내부문서 전투/천칭/시너지/증강/턴/파티 기획서 교차 참조, 수치 불일치 시 최신 기획서 우선
 - **MUST NOT DO**: 기획서 수치 미확인 상태에서 임의 수치 사용 금지
@@ -72,7 +72,7 @@ ScriptableObject 데이터 에셋과 JSON/CSV 로더를 통해 데이터-로직 
 - **EXPECTED OUTCOME**: `BattleStateMachine.cs` + `TurnManager.cs` + `DeckManager.cs` 구현 코드 및 설명
 - **MUST DO**: doc_search로 Unity Scripting API + 게임 프로그래밍 패턴(State Machine) 참조
 - **MUST NOT DO**: 하드코딩된 수치 사용 금지 (ScriptableObject 또는 외부 데이터 참조 필수)
-- **CONTEXT**: Phase 1 구현 요구사항, 기획서 3.4장
+- **CONTEXT**: Phase 1 구현 요구사항, 기획서 전투 시스템 관련 챕터
 
 ### Phase 3: 천칭 시스템 구현 → Agent: programmer
 이 Phase는 `ulw` 매직 키워드를 활용하여 수행.
@@ -80,7 +80,7 @@ ScriptableObject 데이터 에셋과 JSON/CSV 로더를 통해 데이터-로직 
 - **EXPECTED OUTCOME**: `LibraSystem.cs` 구현 코드 (역방향 +10/정방향 -10, 칸당 50, 3칸 구조)
 - **MUST DO**: Observer 패턴으로 천칭 수치 변화 → UI 이벤트 전파 구현, 경계값(-3/+3) 처리 포함
 - **MUST NOT DO**: 경계값 처리 없이 천칭 로직 완성 선언 금지
-- **CONTEXT**: 기획서 3.3장, `resources/초기자료/천칭시스템기획서_V1_이채연.md`
+- **CONTEXT**: 기획서 천칭 시스템 관련 챕터, `resources/초기자료/천칭시스템기획서_V1_이채연.md`
 
 ### Phase 4: 카드/시너지/궁극기 구현 → Agent: programmer
 이 Phase는 `ulw` 매직 키워드를 활용하여 수행.

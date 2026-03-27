@@ -45,8 +45,8 @@
 `resources/references/index.md`의 "QA Engineer" 섹션을 읽고 필요한 내부/외부 문서를 로드한다.
 
 ### Step 2: QA 운영 계획 분석
-`output/planning/master_planning_v*.md` (최신 버전) → 12장(QA & 운영 계획) 완독.
-3장(게임 시스템 기획), 5장(밸런싱 설계), 4.3장(보스 패턴) 추가 참조.
+`output/planning/master_planning_v*.md` (최신 버전)의 목차를 읽고 QA/운영 계획 관련 챕터를 완독한다.
+게임 시스템 기획, 밸런싱 설계, 보스 패턴 관련 챕터도 추가 참조한다.
 
 ### Step 3: 테스트 방법론 적용
 경계값 분석 / 조합 테스트 / 탐색적 테스트 기법 적용:

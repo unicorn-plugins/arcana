@@ -51,11 +51,11 @@ HUD/파티/증강/튜토리얼 UI를 설계하고 밍키의 유저 중심 설계
 
 ### Phase 1: UI/UX 기획 분석 → Agent: uiux-designer
 이 Phase는 `/oh-my-claudecode:analyze`를 활용하여 수행.
-- **TASK**: 마스터 기획서 7장(UI/UX 기획) + 3.4장(전투 HUD) + 3.7장(파티 UI) + 3.5.2장(증강 UI) 분석
+- **TASK**: 마스터 기획서의 목차를 읽고 UI/UX 기획, 전투 HUD, 파티 UI, 증강 UI 관련 챕터를 분석
 - **EXPECTED OUTCOME**: UI 요구사항 정리 (HUD 구성 요소, 파티/증강 UI 구조, 튜토리얼 흐름)
 - **MUST DO**: 기획서에 명시된 모든 UI 컴포넌트 목록 수집
 - **MUST NOT DO**: 기획서에 없는 UI 요소 임의 추가
-- **CONTEXT**: `output/planning/master_planning_v*.md` 7장, 3.4장, 3.7장, 3.5.2장
+- **CONTEXT**: `output/planning/master_planning_v*.md` UI/UX 기획, 전투 HUD, 파티 UI, 증강 UI 관련 챕터
 
 ### Phase 2: UX 플로우 및 HUD 설계 → Agent: uiux-designer
 이 Phase는 `ulw` 매직 키워드를 활용하여 수행.

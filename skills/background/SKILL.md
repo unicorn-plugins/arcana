@@ -58,11 +58,11 @@ user-invocable: true
 
 ### Phase 1: 지역/배경 분석 → Agent: background-artist
 이 Phase는 `/oh-my-claudecode:analyze`를 활용하여 수행.
-- **TASK**: 마스터 기획서 2.3장(주요 지역)과 6.3장(배경 환경 아트 가이드), 내부문서 2종을 분석하여 4스테이지 지역 설정 파악
+- **TASK**: 마스터 기획서의 목차를 읽고 주요 지역 및 배경 환경 아트 가이드 관련 챕터를 찾아, 내부문서 2종을 분석하여 4스테이지 지역 설정 파악
 - **EXPECTED OUTCOME**: 4스테이지 지역 분석 보고서 (각 스테이지 세계관, 분위기, 건축 키워드)
 - **MUST DO**: 4개 스테이지 모두 포함, 각 영역 지배 보스와 세계관 연계 분석
 - **MUST NOT DO**: 마스터 기획서 지역 설정 임의 변경 금지
-- **CONTEXT**: `output/planning/master_planning_v*.md` 2.3장, 6.3장, `resources/초기자료/배경컨셉_V0_이채연.md`
+- **CONTEXT**: `output/planning/master_planning_v*.md` 주요 지역 및 배경 환경 아트 관련 챕터, `resources/초기자료/배경컨셉_V0_이채연.md`
 
 ### Phase 2: 4스테이지별 배경 컨셉 가이드 작성 → Agent: background-artist
 이 Phase는 `ulw` 매직 키워드를 활용하여 수행.
@@ -106,7 +106,7 @@ user-invocable: true
 
 ## 검증 프로토콜
 
-1. 4스테이지 배경 컨셉이 마스터 기획서 2.3장 지역 설정과 일치하는지 확인
+1. 4스테이지 배경 컨셉이 마스터 기획서 지역 설정과 일치하는지 확인
 2. Unity 2D Lighting 설정값이 스테이지별 분위기와 연계되는지 확인
 3. Tilemap 레이어 구성의 스크롤 배율이 근경→원경 순서로 올바르게 설정되었는지 확인
 4. AD 비주얼 아이덴티티 가이드의 스테이지별 색상 지정과 배경 컨셉이 일치하는지 확인

@@ -38,7 +38,7 @@
 `resources/references/index.md`의 "PD (Project Director)" 섹션을 읽고 필요한 내부/외부 문서를 로드한다.
 
 ### Step 2: 마스터 기획서 스캔
-`output/planning/master_planning_v*.md` (최신 버전) → 1장(프로젝트 개요) 완독 + 전 챕터 헤더 스캔으로 현황 파악.
+`output/planning/master_planning_v*.md` (최신 버전)의 목차를 읽고 프로젝트 개요 관련 챕터를 완독한 뒤, 전 챕터 헤더를 스캔하여 현황을 파악한다.
 
 ### Step 3: 마일스톤 추적
 현재 날짜 기준 마일스톤 대비 진행 상황 확인:

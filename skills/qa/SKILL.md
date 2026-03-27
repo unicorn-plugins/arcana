@@ -61,7 +61,7 @@ user-invocable: true
 
 ### Phase 1: QA 운영 분석 → Agent: qa-engineer
 이 Phase는 `/oh-my-claudecode:analyze`를 활용하여 수행.
-- **TASK**: `output/planning/master_planning_v*.md` 12장(QA 운영) + 3장(시스템) + 5장(밸런싱) 분석 후 테스트 범위 파악
+- **TASK**: `output/planning/master_planning_v*.md` 목차를 읽고 QA 운영, 게임 시스템, 밸런싱 관련 챕터를 분석 후 테스트 범위 파악
 - **EXPECTED OUTCOME**: 테스트 범위 정의서 (5대 영역별 테스트 대상, 기준 수치 목록)
 - **MUST DO**: 기획서 수치(천칭 경계값, 증강 상한선, 보스 페이즈 수) 확인하여 테스트 기준 수립
 - **MUST NOT DO**: 기획서 수치 미확인 상태에서 테스트 케이스 설계 시작 금지

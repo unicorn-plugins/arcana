@@ -58,11 +58,11 @@ user-invocable: true
 
 ### Phase 1: 캐릭터/아트 가이드 분석 → Agent: character-artist
 이 Phase는 `/oh-my-claudecode:analyze`를 활용하여 수행.
-- **TASK**: 마스터 기획서 4장(캐릭터 기획)과 6.2장(캐릭터 아트 가이드), 내부문서 4종을 분석하여 캐릭터별 비주얼 설정 파악
+- **TASK**: 마스터 기획서의 목차를 읽고 캐릭터 기획 및 캐릭터 아트 가이드 관련 챕터를 찾아, 내부문서 4종을 분석하여 캐릭터별 비주얼 설정 파악
 - **EXPECTED OUTCOME**: 캐릭터 기획 현황 보고서 (7종 플레이어블 + 5종 보스 비주얼 설정)
 - **MUST DO**: 각 캐릭터의 능력/스킬과 비주얼 설정 간 연계 분석 포함
 - **MUST NOT DO**: 마스터 기획서 캐릭터 설정 임의 변경 금지
-- **CONTEXT**: `output/planning/master_planning_v*.md` 4장, 6.2장, `resources/초기자료/캐릭터비주얼컨셉_V1_이채연.md`
+- **CONTEXT**: `output/planning/master_planning_v*.md` 캐릭터 기획 및 캐릭터 아트 관련 챕터, `resources/초기자료/캐릭터비주얼컨셉_V1_이채연.md`
 
 ### Phase 2: 캐릭터 디자인 시트 및 포즈 가이드 작성 → Agent: character-artist
 이 Phase는 `ulw` 매직 키워드를 활용하여 수행.
