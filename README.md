@@ -19,23 +19,23 @@
   
 ## 사용법
 
-### 역할별 스킬
-
-| 명령 | 역할 | 담당자 | 설명 |
-|------|------|--------|------|
-| `/arcana:pd` | PD | 주디 | 프로젝트 총괄, 크로스 역할 조율 |
-| `/arcana:sound` | Sound Director | 주디 | BGM/SFX 설계, 사운드 에셋 관리 |
-| `/arcana:pm` | PM | 체리 | 일정 관리, 시스템 기획 상세화 |
-| `/arcana:balance` | Balance Designer | 보스 | 세계관 검증, 밸런싱 시뮬레이션 |
-| `/arcana:ad` | AD | 송이 | 비주얼 컨셉, 아트 스타일 관리 |
-| `/arcana:character` | Character Artist | 아트 트리오 | 캐릭터 디자인, 카드 일러스트 |
-| `/arcana:background` | Background Artist | 령 | 배경 컨셉, 조명/분위기 가이드 |
-| `/arcana:animation` | 2D Animator | 모션 듀오 | 전투 모션 스펙, 컷신 시퀀스 |
-| `/arcana:uiux` | UIUX Designer | 밍키 | HUD 설계, UX 플로우 |
-| `/arcana:vfx` | VFX Artist | 니니 | 이펙트 스펙, 타격감 연출 |
-| `/arcana:td` | TD | 우디 | 기술 아키텍처, 파이프라인 |
-| `/arcana:program` | Programmer | 진 | 게임 로직 구현, 데이터 구조 |
-| `/arcana:qa` | QA | 보니 | 테스트 케이스, 버그 추적 |
+### 팀원 호출
+| 스킬 | 호출명령 |
+|------|---------|
+| 프로젝트 디렉터 | `@주디`, `@주연`, `@pd` |
+| 프로젝트 매니저 | `@체리`, `@채연`, `@pm` |
+| 밸런싱 기획 | `@보스`, `@보성`, `@bd` |
+| 캐릭터 아트 | `@아트트리오`, `@유빈`, `@ca` |
+| 아트 디렉터 | `@송이`, `@송희`, `@ad` |
+| 배경 아트 | `@령`, `@예령`, `@ba` |
+| 애니메이션 | `@모션듀오`, `@가현`, `@animator` |
+| UI/UX | `@밍키`, `@민경`, `@ux` |
+| VFX | `@니니`, `@현희`, `@va` |
+| 사운드 | `@주디`, `@주연`, `@sd` |
+| 프로그래밍 | `@진`, `@윤진`, `@programmer` |
+| 테크 디렉터 | `@우디`, `@윤우`, `@td` |
+| QA | `@보니`, `@보현`, `@qa` |
+| 도움말 | `@help` |
 
 ### 산출물 디렉토리
 
@@ -59,9 +59,7 @@ output/
 
 ## 요구사항
 
-- Claude Code CLI
-- Node.js 18+ (context7 MCP 서버)
-- Python 3.9+ (커스텀 도구)
+- Claude CoWork
 
 ## 라이선스
 
