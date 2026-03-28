@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="ko" class="theme-dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCANA — 마스터 기획서 인포그래픽 v2.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script>Chart.defaults.animation = false;</script>
+  <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { interpolate-size: allow-keywords; }
+
+    html.theme-dark {
+      --bg: #0A0A0A; --surface: #141414; --surface-hover: #1C1C1C;
+      --border: rgba(255,255,255,0.06);
+      --text: #EDEDED; --text-secondary: #888;
+      --accent: #a78bfa; --accent-secondary: #6366f1;
+      --positive: #10b981; --negative: #f43f5e; --warning: #f59e0b;
+      --glass-bg: rgba(255,255,255,0.04);
+      --hero-gradient: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #1e3a5f 100%);
+      --card-glow: rgba(167, 139, 250, 0.08);
+    }
+    html.theme-light {
+      --bg: #FAFAF9; --surface: #FFFFFF; --surface-hover: #F5F5F4;
+      --border: rgba(0,0,0,0.06);
+      --text: #0f172a; --text-secondary: #64748b;
+      --accent: #7c3aed; --accent-secondary: #4f46e5;
+      --positive: #059669; --negative: #e11d48; --warning: #d97706;
+      --glass-bg: rgba(0,0,0,0.02);
+      --hero-gradient: linear-gradient(135deg, #ede9fe 0%, #c7d2fe 40%, #dbeafe 100%);
+      --card-glow: rgba(124, 58, 237, 0.06);
+    }
+
+    body {
+      font-family: 'Noto Sans KR', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      transition: background 0.3s, color 0.3s;
+      scrollbar-gutter: stable;
+    }
+    h1,h2,h3,h4 { color: var(--text); letter-spacing: -0.03em; line-height: 1.15; text-wrap: balance; }
+    h1 { font-size: 3rem; font-weight: 800; }
+    h2 { font-size: 2rem; font-weight: 700; }
+    h3 { font-size: 1.5rem; font-weight: 600; }
+    p, li, td, th, span, label { color: var(--text); font-weight: 400; }
+    .text-secondary { color: var(--text-secondary); }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    @media (max-width: 768px) { .container { padding: 0 16px; } }
+
+    /* ===== CARD ===== */
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px;
+      transition: box-shadow 0.2s ease;
+    }
+    .card:hover { box-shadow: 0 0 0 1px var(--border), 0 8px 24px var(--card-glow); }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes slideInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+    .animate { animation: fadeInUp 0.6s ease-out both; }
+    .animate.delay-1 { animation-delay: 0.1s; }
+    .animate.delay-2 { animation-delay: 0.2s; }
+    .animate.delay-3 { animation-delay: 0.3s; }
+    .animate.delay-4 { animation-delay: 0.4s; }
+    .animate.delay-5 { animation-delay: 0.5s; }
+    .animate.delay-6 { animation-delay: 0.6s; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body { background: white !important; color: black !important; }
+      .viz-menu, .reveal { display: revert; opacity: 1 !important; transform: none !important; }
+      .card { break-inside: avoid; border: 1px solid #ddd; box-shadow: none; }
+      * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .hero-section { background: #312e81 !important; }
+    }
+    @page { margin: 0.75in; }
+
+    /* ===== MENU ===== */
+    .viz-menu { position: fixed; top: 16px; right: 16px; z-index: 9999; }
+    .viz-menu-toggle {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      backdrop-filter: blur(12px); transition: all 0.2s;
+    }
+    .viz-menu-toggle:hover { background: var(--surface-hover); }
+    .viz-menu-dropdown {
+      position: absolute; top: 52px; right: 0; min-width: 200px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 8px;
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: all 0.2s; backdrop-filter: blur(16px);
+    }
+    .viz-menu-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .viz-menu-dropdown button {
+      width: 100%; padding: 10px 14px; border: none; border-radius: 8px;
+      background: transparent; color: var(--text); font-size: 14px;
+      font-family: inherit; cursor: pointer; text-align: left;
+      display: flex; align-items: center; gap: 10px; transition: background 0.15s;
+    }
+    .viz-menu-dropdown button:hover { background: var(--surface-hover); }
+
+    .skip-link {
+      position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+      z-index: 10000; padding: 8px 16px; background: var(--accent); color: white;
+      text-decoration: none; border-radius: 4px;
+    }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; overflow: visible; }
+
+    /* ===== HERO ===== */
+    .hero-section {
+      background: var(--hero-gradient);
+      padding: 80px 0 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(167,139,250,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-title { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 900; margin-bottom: 12px; }
+    .hero-subtitle { font-size: 1.25rem; color: var(--text-secondary); font-weight: 400; margin-bottom: 8px; }
+    .hero-meta { font-size: 0.875rem; color: var(--text-secondary); opacity: 0.7; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(167,139,250,0.15); border: 1px solid rgba(167,139,250,0.25);
+      border-radius: 100px; padding: 6px 16px; font-size: 0.8rem;
+      color: var(--accent); font-weight: 500; margin-bottom: 20px;
+    }
+
+    /* ===== KPI CARDS ===== */
+    .kpi-grid {
+      display: grid; gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin: -40px auto 0; position: relative; z-index: 2;
+    }
+    .kpi-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px; text-align: center;
+      backdrop-filter: blur(8px);
+    }
+    .kpi-value { font-size: 2.5rem; font-weight: 800; color: var(--accent); line-height: 1.1; }
+    .kpi-label { font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px; font-weight: 500; }
+
+    /* ===== SECTION ===== */
+    .section { padding: 64px 0; }
+    .section-header { margin-bottom: 36px; }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--accent); margin-bottom: 8px;
+    }
+
+    /* ===== PILLAR CARDS ===== */
+    .pillar-grid {
+      display: grid; gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+    .pillar-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px; position: relative;
+      overflow: hidden;
+    }
+    .pillar-card:hover { box-shadow: 0 8px 24px var(--card-glow); }
+    .pillar-number {
+      font-size: 3rem; font-weight: 900; color: var(--accent);
+      opacity: 0.15; position: absolute; top: 12px; right: 20px; line-height: 1;
+    }
+    .pillar-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ===== CORE LOOP ===== */
+    .loop-flow {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 12px; margin: 24px 0;
+    }
+    .loop-step {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 20px; text-align: center;
+      font-size: 0.9rem; font-weight: 500; min-width: 120px;
+      transition: box-shadow 0.2s;
+    }
+    .loop-step:hover { box-shadow: 0 4px 16px var(--card-glow); }
+    .loop-step.highlight { border-color: var(--accent); background: rgba(167,139,250,0.08); }
+    .loop-arrow { color: var(--accent); font-size: 1.2rem; font-weight: 700; }
+
+    /* ===== FATE SYSTEM ===== */
+    .fate-bar {
+      display: flex; align-items: stretch; border-radius: 12px;
+      overflow: hidden; margin: 24px 0; min-height: 80px;
+      border: 1px solid var(--border);
+    }
+    .fate-side {
+      flex: 1; padding: 16px 20px; display: flex; flex-direction: column;
+      justify-content: center;
+    }
+    .fate-resist {
+      background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05));
+      border-right: 2px solid var(--negative);
+    }
+    .fate-neutral { background: var(--glass-bg); flex: 0.5; text-align: center; display: flex; align-items: center; justify-content: center; }
+    .fate-comply {
+      background: linear-gradient(135deg, rgba(16,185,129,0.05), rgba(16,185,129,0.15));
+      border-left: 2px solid var(--positive); text-align: right;
+    }
+    .fate-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+    .fate-desc { font-size: 0.85rem; color: var(--text-secondary); }
+    .fate-resist .fate-label { color: var(--negative); }
+    .fate-comply .fate-label { color: var(--positive); }
+    .fate-icon { font-size: 1.8rem; }
+
+    /* ===== CHARACTER CARDS ===== */
+    .char-grid {
+      display: grid; gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .char-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px; display: flex; gap: 16px;
+      align-items: flex-start; transition: box-shadow 0.2s;
+    }
+    .char-card:hover { box-shadow: 0 4px 16px var(--card-glow); }
+    .char-avatar {
+      width: 48px; height: 48px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .char-info { flex: 1; }
+    .char-name { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+    .char-role { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px; }
+    .char-skill { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+    .char-tag {
+      display: inline-block; font-size: 0.7rem; padding: 2px 8px;
+      border-radius: 100px; font-weight: 500; margin-right: 4px;
+    }
+    .tag-attack { background: rgba(239,68,68,0.12); color: var(--negative); }
+    .tag-defense { background: rgba(59,130,246,0.12); color: #60a5fa; }
+    .tag-support { background: rgba(16,185,129,0.12); color: var(--positive); }
+    .tag-risk { background: rgba(245,158,11,0.12); color: var(--warning); }
+
+    /* ===== BOSS TIMELINE ===== */
+    .boss-timeline { position: relative; padding-left: 32px; }
+    .boss-timeline::before {
+      content: ''; position: absolute; left: 11px; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, var(--accent), var(--accent-secondary), var(--negative));
+    }
+    .boss-item { position: relative; margin-bottom: 28px; }
+    .boss-item::before {
+      content: ''; position: absolute; left: -25px; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+    }
+    .boss-item:last-child::before { background: var(--negative); width: 14px; height: 14px; left: -26px; top: 5px; }
+    .boss-stage { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; }
+    .boss-name { font-size: 1.1rem; font-weight: 700; margin: 4px 0; }
+    .boss-desc { font-size: 0.85rem; color: var(--text-secondary); }
+
+    /* ===== MILESTONE ===== */
+    .milestone-track {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      margin: 24px 0;
+    }
+    @media (max-width: 768px) { .milestone-track { grid-template-columns: repeat(2, 1fr); } }
+    .milestone-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .milestone-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .milestone-card:nth-child(1)::before { background: var(--accent); }
+    .milestone-card:nth-child(2)::before { background: var(--positive); }
+    .milestone-card:nth-child(3)::before { background: var(--warning); }
+    .milestone-card:nth-child(4)::before { background: var(--negative); }
+    .milestone-quarter { font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+    .milestone-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .milestone-detail { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+    /* ===== TEAM GRID ===== */
+    .team-grid {
+      display: grid; gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .team-member {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 16px;
+      display: flex; align-items: center; gap: 12px;
+      transition: box-shadow 0.2s;
+    }
+    .team-member:hover { box-shadow: 0 4px 12px var(--card-glow); }
+    .team-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; color: white; flex-shrink: 0;
+    }
+    .team-name { font-size: 0.9rem; font-weight: 600; }
+    .team-role { font-size: 0.75rem; color: var(--text-secondary); }
+
+    /* ===== SYSTEM DEP MAP ===== */
+    .dep-map {
+      display: grid; gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      margin: 20px 0;
+    }
+    .dep-node {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px; text-align: center;
+      font-size: 0.85rem; font-weight: 500;
+      transition: all 0.2s;
+    }
+    .dep-node:hover { border-color: var(--accent); box-shadow: 0 0 16px var(--card-glow); }
+    .dep-node.core { border-color: var(--accent); background: rgba(167,139,250,0.08); }
+
+    /* ===== CHART SECTION ===== */
+    .chart-row {
+      display: grid; gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+    @media (max-width: 768px) { .chart-row { grid-template-columns: 1fr; } }
+    .chart-container {
+      height: 360px; padding: 24px; border-radius: 12px;
+      background: var(--surface); border: 1px solid var(--border);
+    }
+
+    /* ===== SECTION OVERVIEW ===== */
+    .doc-sections {
+      display: grid; gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .doc-sec-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px; display: flex; align-items: center; gap: 12px;
+      transition: box-shadow 0.2s; cursor: default;
+    }
+    .doc-sec-card:hover { box-shadow: 0 4px 12px var(--card-glow); }
+    .doc-sec-num {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(167,139,250,0.12); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700; flex-shrink: 0;
+    }
+    .doc-sec-title { font-size: 0.85rem; font-weight: 600; }
+
+    /* ===== SEARCH ===== */
+    .search-bar {
+      width: 100%; max-width: 400px; padding: 10px 16px;
+      border: 1px solid var(--border); border-radius: 10px;
+      background: var(--surface); color: var(--text);
+      font-family: inherit; font-size: 0.9rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-bar:focus { border-color: var(--accent); }
+    .search-bar::placeholder { color: var(--text-secondary); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center; padding: 48px 0 32px;
+      font-size: 0.8rem; color: var(--text-secondary);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 375px) {
+      body { overflow-x: hidden; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .pillar-grid { grid-template-columns: 1fr; }
+      .char-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.2rem; }
+    }
+
+    /* ===== ATMOSPHERE ===== */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      background: radial-gradient(ellipse at 20% 80%, rgba(99,102,241,0.06) 0%, transparent 50%),
+                  radial-gradient(ellipse at 80% 20%, rgba(167,139,250,0.04) 0%, transparent 50%);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- MENU -->
+  <div class="viz-menu">
+    <button class="viz-menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="5" x2="17" y2="5"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="15" x2="17" y2="15"/>
+      </svg>
+    </button>
+    <div class="viz-menu-dropdown" id="vizMenuDropdown">
+      <button onclick="cycleTheme()"><span id="themeIcon">&#127769;</span><span id="themeLabel">Dark</span></button>
+      <button onclick="downloadImage()"><span>&#128229;</span><span>Download PNG</span></button>
+      <button onclick="window.print()"><span>&#128424;</span><span>Print / PDF</span></button>
+    </div>
+  </div>
+
+  <main id="main-content" role="main">
+
+    <!-- HERO -->
+    <section class="hero-section" aria-label="Project Overview">
+      <div class="container">
+        <div class="hero-badge animate">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          v2.0 — 2026.03.27
+        </div>
+        <h1 class="hero-title animate delay-1">ARCANA</h1>
+        <p class="hero-subtitle animate delay-2">숨겨진 운명의 비밀 — 마스터 기획서 요약</p>
+        <p class="hero-meta animate delay-3">Team Light Life &middot; 2D 로그라이트 턴제 카드 전략 게임 &middot; PC</p>
+      </div>
+    </section>
+
+    <!-- KPI CARDS -->
+    <section class="container" style="margin-bottom: 64px;" aria-label="Key Metrics">
+      <div class="kpi-grid">
+        <div class="kpi-card animate delay-2">
+          <div class="kpi-value" data-count="13" data-suffix="명">0명</div>
+          <div class="kpi-label">팀원</div>
+        </div>
+        <div class="kpi-card animate delay-3">
+          <div class="kpi-value" data-count="12" data-suffix="장">0장</div>
+          <div class="kpi-label">기획서 챕터</div>
+        </div>
+        <div class="kpi-card animate delay-4">
+          <div class="kpi-value" data-count="4" data-suffix="개">0개</div>
+          <div class="kpi-label">스테이지</div>
+        </div>
+        <div class="kpi-card animate delay-5">
+          <div class="kpi-value" data-count="20" data-suffix="분">0분</div>
+          <div class="kpi-label">1회 플레이타임</div>
+        </div>
+        <div class="kpi-card animate delay-6">
+          <div class="kpi-value" data-count="6" data-suffix="명">0명</div>
+          <div class="kpi-label">플레이어블 캐릭터</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESIGN PILLARS -->
+    <section class="section container" data-reveal aria-label="Design Pillars">
+      <div class="section-header">
+        <div class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Design Pillars
+        </div>
+        <h2>핵심 경험 기둥</h2>
+      </div>
+      <div class="pillar-grid">
+        <div class="pillar-card">
+          <div class="pillar-number">01</div>
+          <div class="pillar-title">전략의 재미</div>
+          <div class="pillar-desc">매 턴 제한된 카드와 코스트로 최적의 해를 찾는 인지적 퍼즐 경험</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-number">02</div>
+          <div class="pillar-title">윤회를 통한 성장</div>
+          <div class="pillar-desc">패배해도 토템·스탯 이월로 점진적 강화, "한 판만 더" 동기 부여</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-number">03</div>
+          <div class="pillar-title">운명에 대한 선택</div>
+          <div class="pillar-desc">정방향(순응) vs 역방향(저항) 선택이 전투 양상 자체를 바꾸는 경험</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-number">04</div>
+          <div class="pillar-title">빠른 몰입</div>
+          <div class="pillar-desc">간결한 드래그앤드롭 조작, 20분 이내 한 사이클 완료</div>
+        </div>
+        <div class="pillar-card" style="grid-column: span 2;">
+          <div class="pillar-number">05</div>
+          <div class="pillar-title">캐릭터의 깊이</div>
+          <div class="pillar-desc">각 캐릭터가 독립된 신념과 서사를 가지며, 전투 역할과 자연스럽게 맞물림. 타로카드의 상징과 캐릭터 아이덴티티가 일체화된 설계</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE LOOP -->
+    <section class="section container" data-reveal aria-label="Core Loop">
+      <div class="section-header">
+        <div class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-6.219-8.56"/><polyline points="21 3 21 12 12 12"/></svg>
+          Core Loop
+        </div>
+        <h2>핵심 게임플레이 루프</h2>
+      </div>
+      <div class="loop-flow">
+        <div class="loop-step highlight">윤회 시작</div>
+        <span class="loop-arrow">&rarr;</span>
+        <div class="loop-step">증강/캐릭터 선택</div>
+        <span class="loop-arrow">&rarr;</span>
+        <div class="loop-step">노드 맵 탐색</div>
+        <span class="loop-arrow">&rarr;</span>
+        <div class="loop-step highlight">전투 / 사건</div>
+        <span class="loop-arrow">&rarr;</span>
+        <div class="loop-step">증강 보상</div>
+        <span class="loop-arrow">&rarr;</span>
+        <div class="loop-step highlight">보스 클리어</div>
+      </div>
+      <div style="text-align:center; margin-top:12px;">
+        <span class="loop-arrow" style="font-size:1rem;">&darr; 패배 시</span>
+      </div>
+      <div class="loop-flow" style="justify-content:center; margin-top:12px;">
+        <div class="loop-step" style="border-color:var(--warning);">게임 오버</div>
+        <span class="loop-arrow">&rarr;</span>
+        <div class="loop-step" style="border-color:var(--warning);">토템 선택</div>
+        <span class="loop-arrow">&rarr;</span>
+        <div class="loop-step highlight">다음 윤회</div>
+      </div>
+    </section>
+
+    <!-- FATE SYSTEM -->
+    <section class="section container" data-reveal aria-label="Fate System">
+      <div class="section-header">
+        <div class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+          Fate System
+        </div>
+        <h2>천칭 시스템 (운명의 저울)</h2>
+        <p class="text-secondary" style="margin-top:8px; font-size:0.9rem;">역방향/정방향 카드 사용에 따른 하이리스크 하이리턴 전략 요소. 스케일 범위 -3 ~ +3 (7구간)</p>
+      </div>
+      <div class="fate-bar">
+        <div class="fate-side fate-resist">
+          <div class="fate-label">운명 저항 (역방향)</div>
+          <div class="fate-desc">공격력 최대 +32% / HP·방어력 최대 -20%</div>
+          <div class="fate-desc" style="margin-top:4px; font-size:0.8rem; opacity:0.7;">High Risk, High Return</div>
+        </div>
+        <div class="fate-side fate-neutral">
+          <div class="fate-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.5"><path d="M12 3v2m0 14v2M5.636 5.636l1.414 1.414m9.9 9.9l1.414 1.414M3 12h2m14 0h2M5.636 18.364l1.414-1.414m9.9-9.9l1.414-1.414"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+        </div>
+        <div class="fate-side fate-comply">
+          <div class="fate-label">운명 순응 (정방향)</div>
+          <div class="fate-desc">HP 회복 최대 12% / 공격력 최대 -12%</div>
+          <div class="fate-desc" style="margin-top:4px; font-size:0.8rem; opacity:0.7;">Low Risk, Low Return</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHARACTERS -->
+    <section class="section container" data-reveal aria-label="Characters">
+      <div class="section-header">
+        <div class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          Characters
+        </div>
+        <h2>플레이어블 캐릭터</h2>
+      </div>
+      <div class="char-grid">
+        <div class="char-card">
+          <div class="char-avatar" style="background:linear-gradient(135deg,#10b981,#059669);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="char-info">
+            <div class="char-name">Wheel of Fortune (주인공)</div>
+            <div class="char-role">여성 · 19세 · 운명을 되돌리는 자</div>
+            <div><span class="char-tag tag-support">서포트</span><span class="char-tag tag-defense">디버프해제</span></div>
+            <div class="char-skill">정: 적 스킬 제거 / 역: 디버프 해제+힐 / 궁: 전체 회복+궁극기 충전</div>
+          </div>
+        </div>
+        <div class="char-card">
+          <div class="char-avatar" style="background:linear-gradient(135deg,#ef4444,#dc2626);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
+          </div>
+          <div class="char-info">
+            <div class="char-name">Justice</div>
+            <div class="char-role">방어형 · 후반 캐릭터</div>
+            <div><span class="char-tag tag-defense">방어</span><span class="char-tag tag-attack">반격</span></div>
+            <div class="char-skill">정: 광역 공격+방어 디버프 / 역: 보호막+반격 / 궁: 처형 (HP 비례)</div>
+          </div>
+        </div>
+        <div class="char-card">
+          <div class="char-avatar" style="background:linear-gradient(135deg,#6366f1,#4f46e5);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M15 4V2M15 16v-2M8 9h10M8 13h10"/><circle cx="15" cy="9" r="1"/></svg>
+          </div>
+          <div class="char-info">
+            <div class="char-name">The Magician</div>
+            <div class="char-role">초반 공격 · 막판 뒤집기</div>
+            <div><span class="char-tag tag-attack">공격</span><span class="char-tag tag-risk">올인</span></div>
+            <div class="char-skill">정: 단일 공격+디버프 / 역: 광역+디버프 비례 추가 피해 / 궁: 아군 흡수 올인</div>
+          </div>
+        </div>
+        <div class="char-card">
+          <div class="char-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <div class="char-info">
+            <div class="char-name">The Fool</div>
+            <div class="char-role">하이리스크 하이리턴 공격형</div>
+            <div><span class="char-tag tag-attack">공격</span><span class="char-tag tag-risk">자해</span></div>
+            <div class="char-skill">정: 디버프 비례 단일 공격 / 역: HP소모 광역 / 궁: 방어 무시 초화력</div>
+          </div>
+        </div>
+        <div class="char-card">
+          <div class="char-avatar" style="background:linear-gradient(135deg,#eab308,#ca8a04);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <div class="char-info">
+            <div class="char-name">Judgement</div>
+            <div class="char-role">전 이단심문관 · 속죄의 전사</div>
+            <div><span class="char-tag tag-attack">공격</span><span class="char-tag tag-attack">집중타격</span></div>
+            <div class="char-skill">업보: 남은 HP 비례 공격력 / 무자비: 공격한 적에 추가 데미지</div>
+          </div>
+        </div>
+        <div class="char-card">
+          <div class="char-avatar" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M12 8v4M12 16h.01"/></svg>
+          </div>
+          <div class="char-info">
+            <div class="char-name">The Devil</div>
+            <div class="char-role">탈옥수 · 실존주의 추구자</div>
+            <div><span class="char-tag tag-attack">공격</span><span class="char-tag tag-risk">처형</span></div>
+            <div class="char-skill">본능: 일정 HP 이하 적 추가 데미지 / 해방: 처치 시 공격력 증가</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOSS TIMELINE -->
+    <section class="section container" aria-label="Boss Stages">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 48px;">
+        <div data-reveal>
+          <div class="section-header">
+            <div class="section-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>
+              Boss Stages
+            </div>
+            <h2>보스 & 스토리 여정</h2>
+          </div>
+          <div class="boss-timeline">
+            <div class="boss-item">
+              <div class="boss-stage">Stage 1</div>
+              <div class="boss-name">The Chariot — 진군과 결의</div>
+              <div class="boss-desc">소환된 적을 처치해 약화시킨 뒤 폭딜. 2페이즈 보스</div>
+            </div>
+            <div class="boss-item">
+              <div class="boss-stage">Stage 2</div>
+              <div class="boss-name">Justice — 심판과 회의</div>
+              <div class="boss-desc">디버프 수 조절이 핵심. "정의란 무엇인가"에 대한 질문</div>
+            </div>
+            <div class="boss-item">
+              <div class="boss-stage">Stage 3</div>
+              <div class="boss-name">The Hermit — 고독과 지혜</div>
+              <div class="boss-desc">속박 즉사 기믹. 디버프 삭제 + 팀 커버 전략 필요</div>
+            </div>
+            <div class="boss-item">
+              <div class="boss-stage">Stage 4 (전)</div>
+              <div class="boss-name">The Emperor — 절대 통제</div>
+              <div class="boss-desc">아군 전향 기믹. 소환 처리로 약화 후 폭딜</div>
+            </div>
+            <div class="boss-item">
+              <div class="boss-stage">Final Boss</div>
+              <div class="boss-name">The World (아르카나) — 완성과 파괴</div>
+              <div class="boss-desc">3페이즈, 즉사 패턴 궁극기. 운명 그 자체와의 최후 결전</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHARTS -->
+        <div data-reveal>
+          <div class="section-header">
+            <div class="section-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+              Difficulty Curve
+            </div>
+            <h2>난이도 설계</h2>
+            <p class="text-secondary" style="margin-top:4px; font-size:0.85rem;">톱니(Saw) 패턴: 보스 클리어 후 일시 하락 &rarr; 성장 체감</p>
+          </div>
+          <div role="img" aria-label="스테이지별 난이도 곡선 차트 - 톱니 패턴으로 보스 이후 난이도가 일시 하락한 뒤 다시 상승">
+            <div class="chart-container">
+              <canvas id="difficultyChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MILESTONES -->
+    <section class="section container" data-reveal aria-label="Milestones">
+      <div class="section-header">
+        <div class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Milestones
+        </div>
+        <h2>개발 일정 — 2026</h2>
+      </div>
+      <div class="milestone-track">
+        <div class="milestone-card">
+          <div class="milestone-quarter">Q1</div>
+          <div class="milestone-name">프리프로덕션</div>
+          <div class="milestone-detail">기획서 확정<br>프로토타입 개발</div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-quarter">Q2</div>
+          <div class="milestone-name">알파</div>
+          <div class="milestone-detail">코어 루프 완성<br>1스테이지 플레이 가능</div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-quarter">Q3</div>
+          <div class="milestone-name">베타</div>
+          <div class="milestone-detail">전체 스테이지·보스 구현<br>밸런싱 1차 완료</div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-quarter">Q4</div>
+          <div class="milestone-name">폴리싱</div>
+          <div class="milestone-detail">QA 완료<br>출시 준비</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section container" data-reveal aria-label="Team">
+      <div class="section-header">
+        <div class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          Team Light Life
+        </div>
+        <h2>팀 구성 — 13명</h2>
+        <div style="margin-top:12px;">
+          <input type="text" class="search-bar" id="teamSearch" placeholder="팀원 검색..." oninput="filterTeam()">
+        </div>
+      </div>
+      <div class="team-grid" id="teamGrid">
+        <div class="team-member" data-name="주디 주연 pd sd">
+          <div class="team-icon" style="background:linear-gradient(135deg,#8b5cf6,#6366f1);">PD</div>
+          <div><div class="team-name">주디 (김주연)</div><div class="team-role">PD & Sound Director</div></div>
+        </div>
+        <div class="team-member" data-name="체리 채연 pm">
+          <div class="team-icon" style="background:linear-gradient(135deg,#ec4899,#db2777);">PM</div>
+          <div><div class="team-name">체리 (이채연)</div><div class="team-role">Project Manager</div></div>
+        </div>
+        <div class="team-member" data-name="보스 보성 bd">
+          <div class="team-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706);">BD</div>
+          <div><div class="team-name">보스 (장보성)</div><div class="team-role">Concept & Balancing</div></div>
+        </div>
+        <div class="team-member" data-name="송이 송희 ad">
+          <div class="team-icon" style="background:linear-gradient(135deg,#ef4444,#dc2626);">AD</div>
+          <div><div class="team-name">송이 (김송희)</div><div class="team-role">Art Director</div></div>
+        </div>
+        <div class="team-member" data-name="아트트리오 유빈 예빈 주희 ca">
+          <div class="team-icon" style="background:linear-gradient(135deg,#10b981,#059669);">CA</div>
+          <div><div class="team-name">아트 트리오</div><div class="team-role">Character Artist (3인)</div></div>
+        </div>
+        <div class="team-member" data-name="령 예령 ba">
+          <div class="team-icon" style="background:linear-gradient(135deg,#06b6d4,#0891b2);">BA</div>
+          <div><div class="team-name">령 (손예령)</div><div class="team-role">Background Artist</div></div>
+        </div>
+        <div class="team-member" data-name="모션듀오 가현 예리 animator">
+          <div class="team-icon" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);">AN</div>
+          <div><div class="team-name">모션 듀오</div><div class="team-role">2D Animator (2인)</div></div>
+        </div>
+        <div class="team-member" data-name="밍키 민경 ux">
+          <div class="team-icon" style="background:linear-gradient(135deg,#f472b6,#ec4899);">UX</div>
+          <div><div class="team-name">밍키 (조민경)</div><div class="team-role">UI/UX Designer</div></div>
+        </div>
+        <div class="team-member" data-name="니니 현희 va vfx">
+          <div class="team-icon" style="background:linear-gradient(135deg,#fbbf24,#f59e0b);">VX</div>
+          <div><div class="team-name">니니 (정현희)</div><div class="team-role">VFX Artist</div></div>
+        </div>
+        <div class="team-member" data-name="우디 윤우 td">
+          <div class="team-icon" style="background:linear-gradient(135deg,#3b82f6,#2563eb);">TD</div>
+          <div><div class="team-name">우디 (최윤우)</div><div class="team-role">Technical Director</div></div>
+        </div>
+        <div class="team-member" data-name="진 윤진 programmer">
+          <div class="team-icon" style="background:linear-gradient(135deg,#14b8a6,#0d9488);">PG</div>
+          <div><div class="team-name">진 (윤진)</div><div class="team-role">Sub Programmer</div></div>
+        </div>
+        <div class="team-member" data-name="보니 보현 qa">
+          <div class="team-icon" style="background:linear-gradient(135deg,#f97316,#ea580c);">QA</div>
+          <div><div class="team-name">보니 (김보현)</div><div class="team-role">Quality Assurance</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM DEPENDENCY -->
+    <section class="section container" data-reveal aria-label="System Map">
+      <div class="section-header">
+        <div class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m-7-7H1m22 0h-4M4.22 4.22l4.24 4.24m7.08 7.08l4.24 4.24m0-15.56l-4.24 4.24m-7.08 7.08l-4.24 4.24"/></svg>
+          System Architecture
+        </div>
+        <h2>핵심 시스템 의존관계</h2>
+      </div>
+      <div class="dep-map">
+        <div class="dep-node core">전투 시스템</div>
+        <div class="dep-node core">카드 덱 시스템</div>
+        <div class="dep-node core">천칭 시스템</div>
+        <div class="dep-node">시너지 시스템</div>
+        <div class="dep-node">궁극기 시스템</div>
+        <div class="dep-node">특수 카드</div>
+        <div class="dep-node">증강 시스템</div>
+        <div class="dep-node">파티 시스템</div>
+        <div class="dep-node">노드 시스템</div>
+        <div class="dep-node">사건 시스템</div>
+        <div class="dep-node">토템 시스템</div>
+        <div class="dep-node">윤회 시스템</div>
+      </div>
+    </section>
+
+    <!-- DOCUMENT OVERVIEW -->
+    <section class="section container" data-reveal aria-label="Document Sections">
+      <div class="section-header">
+        <div class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Document Structure
+        </div>
+        <h2>기획서 전체 구성 (12장)</h2>
+      </div>
+      <div class="doc-sections">
+        <div class="doc-sec-card"><div class="doc-sec-num">1</div><div class="doc-sec-title">프로젝트 개요</div></div>
+        <div class="doc-sec-card"><div class="doc-sec-num">2</div><div class="doc-sec-title">세계관 & 스토리</div></div>
+        <div class="doc-sec-card"><div class="doc-sec-num">3</div><div class="doc-sec-title">게임 시스템 기획</div></div>
+        <div class="doc-sec-card"><div class="doc-sec-num">4</div><div class="doc-sec-title">캐릭터 기획</div></div>
+        <div class="doc-sec-card"><div class="doc-sec-num">5</div><div class="doc-sec-title">밸런싱 설계</div></div>
+        <div class="doc-sec-card"><div class="doc-sec-num">6</div><div class="doc-sec-title">아트 기획</div></div>
+        <div class="doc-sec-card"><div class="doc-sec-num">7</div><div class="doc-sec-title">UI/UX 기획</div></div>
+        <div class="doc-sec-card"><div class="doc-sec-num">8</div><div class="doc-sec-title">애니메이션 & 연출</div></div>
+        <div class="doc-sec-card"><div class="doc-sec-num">9</div><div class="doc-sec-title">사운드 기획</div></div>
+        <div class="doc-sec-card"><div class="doc-sec-num">10</div><div class="doc-sec-title">기술 기획</div></div>
+        <div class="doc-sec-card"><div class="doc-sec-num">11</div><div class="doc-sec-title">비즈니스 기획</div></div>
+        <div class="doc-sec-card"><div class="doc-sec-num">12</div><div class="doc-sec-title">QA & 운영</div></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>ARCANA Master GDD v2.0 &middot; Team Light Life &middot; 2026.03.27</p>
+      <p style="margin-top:4px; opacity:0.5;">작성: 보스(세계관·밸런싱) &middot; 체리(시스템 기획) &middot; 주디(총괄 디렉팅)</p>
+    </footer>
+
+  </main>
+
+  <script>
+    // === Menu ===
+    function toggleMenu() {
+      var dropdown = document.getElementById('vizMenuDropdown');
+      if (dropdown) dropdown.classList.toggle('open');
+    }
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.viz-menu')) {
+        var dropdown = document.getElementById('vizMenuDropdown');
+        if (dropdown) dropdown.classList.remove('open');
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        var dropdown = document.getElementById('vizMenuDropdown');
+        if (dropdown) dropdown.classList.remove('open');
+      }
+    });
+
+    // === Theme ===
+    var savedTheme = localStorage.getItem('viz-theme');
+    var currentTheme = savedTheme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    function applyTheme(t) {
+      document.documentElement.className = 'theme-' + t;
+      document.getElementById('themeIcon').textContent = t === 'dark' ? '\u{1F319}' : '\u{2600}\u{FE0F}';
+      document.getElementById('themeLabel').textContent = t === 'dark' ? 'Dark' : 'Light';
+      localStorage.setItem('viz-theme', t);
+      currentTheme = t;
+      if (typeof onThemeChange === 'function') onThemeChange();
+    }
+    function cycleTheme() { applyTheme(currentTheme === 'dark' ? 'light' : 'dark'); }
+    applyTheme(currentTheme);
+
+    // === Scroll Reveal ===
+    document.querySelectorAll('[data-reveal]').forEach(function(el) { el.classList.add('reveal'); });
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+
+    // === Number Counter ===
+    function animateCounters() {
+      document.querySelectorAll('[data-count]').forEach(function(el) {
+        if (el.dataset.counted) return;
+        el.dataset.counted = '1';
+        var target = parseFloat(el.dataset.count), prefix = el.dataset.prefix || '', suffix = el.dataset.suffix || '';
+        var start = performance.now(), duration = 1200;
+        (function tick(now) {
+          var p = Math.min((now - start) / duration, 1), eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = prefix + Math.round(target * eased).toLocaleString() + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        })(start);
+      });
+    }
+    var counterEl = document.querySelector('[data-count]');
+    if (counterEl) {
+      var cObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if (e.isIntersecting) { animateCounters(); cObs.disconnect(); } });
+      }, { threshold: 0.3 });
+      cObs.observe(counterEl);
+    }
+
+    // === Download PNG ===
+    async function downloadImage() {
+      var menu = document.querySelector('.viz-menu');
+      menu.style.display = 'none';
+      try {
+        var url = await htmlToImage.toPng(document.body, { quality: 1, pixelRatio: 2, filter: function(n) { return !n.classList || !n.classList.contains('viz-menu'); } });
+        var a = document.createElement('a'); a.href = url;
+        a.download = 'arcana-master-planning-infographic.png'; a.click();
+      } catch(e) { console.error('Download failed:', e); }
+      menu.style.display = '';
+    }
+
+    // === Team Search ===
+    function filterTeam() {
+      var query = document.getElementById('teamSearch').value.toLowerCase();
+      var members = document.querySelectorAll('.team-member');
+      members.forEach(function(m) {
+        var name = m.getAttribute('data-name') || '';
+        var text = m.textContent.toLowerCase();
+        m.style.display = (name.indexOf(query) !== -1 || text.indexOf(query) !== -1) ? '' : 'none';
+      });
+    }
+
+    // === Chart.js ===
+    var chartsBuilt = false;
+
+    function buildCharts() {
+      if (chartsBuilt || typeof Chart === 'undefined') return;
+
+      var isDark = document.documentElement.classList.contains('theme-dark');
+      var textColor = isDark ? '#EDEDED' : '#0f172a';
+      var gridColor = isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.06)';
+      var accentColor = isDark ? '#a78bfa' : '#7c3aed';
+
+      function resetCanvas(id) {
+        var old = document.getElementById(id);
+        if (!old) return null;
+        var parent = old.parentNode;
+        var canvas = document.createElement('canvas');
+        canvas.id = id;
+        canvas.setAttribute('role', 'img');
+        canvas.setAttribute('aria-label', '스테이지별 난이도 곡선');
+        parent.replaceChild(canvas, old);
+        return canvas;
+      }
+
+      var ctx = resetCanvas('difficultyChart');
+      if (ctx) {
+        try {
+          if (window.diffChart) window.diffChart.destroy();
+        } catch(e) {}
+
+        window.diffChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['튜토리얼', 'S1 시작', 'S1 중반', 'Chariot', 'S2 시작', 'S2 중반', 'Justice', 'S3 시작', 'S3 중반', 'Hermit', 'Emperor', 'The World'],
+            datasets: [{
+              label: '난이도',
+              data: [15, 25, 40, 65, 35, 50, 72, 48, 62, 80, 88, 100],
+              borderColor: accentColor,
+              backgroundColor: isDark ? 'rgba(167,139,250,0.1)' : 'rgba(124,58,237,0.08)',
+              fill: true,
+              tension: 0.4,
+              pointRadius: 0,
+              pointHoverRadius: 6,
+              borderWidth: 2.5
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: false,
+            plugins: {
+              tooltip: { enabled: true, mode: 'index', intersect: false, padding: 12, cornerRadius: 8, titleFont: { size: 13 }, bodyFont: { size: 12 } },
+              legend: { display: false }
+            },
+            scales: {
+              x: {
+                ticks: { color: textColor, font: { size: 10, family: 'Noto Sans KR' }, maxRotation: 45 },
+                grid: { color: gridColor }
+              },
+              y: {
+                min: 0, max: 110,
+                ticks: { color: textColor, font: { size: 11 }, callback: function(v) { return v + '%'; } },
+                grid: { color: gridColor }
+              }
+            },
+            layout: { padding: { top: 10, right: 10, bottom: 0, left: 0 } }
+          }
+        });
+      }
+
+      chartsBuilt = true;
+    }
+
+    function onThemeChange() {
+      chartsBuilt = false;
+      setTimeout(buildCharts, 100);
+    }
+
+    document.addEventListener('DOMContentLoaded', buildCharts);
+    window.addEventListener('load', buildCharts);
+  </script>
+</body>
+</html>
