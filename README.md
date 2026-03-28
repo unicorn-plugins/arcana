@@ -12,6 +12,11 @@
 | 플랫폼 | PC (Steam) |
 | 팀 | Team Light Life (12명, 13개 역할) |
 
+[마스터 제안서 ](output/planning/master-planning-infographic.html)
+
+## 팀원 역량
+[팀원역량](resources/guides/capabilities.md)
+  
 ## 사용법
 
 ### 역할별 스킬
