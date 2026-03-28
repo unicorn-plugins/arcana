@@ -3,7 +3,7 @@
 Arcana Art Asset Pipeline Guide
 Spine 애니메이션-게임엔진 연동, 카드 이미지 규격 관리 도구
 
-활용 에이전트: tech-director, animator
+활용 에이전트: td, animator
 """
 
 import json

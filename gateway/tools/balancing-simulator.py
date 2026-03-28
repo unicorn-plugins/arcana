@@ -3,7 +3,7 @@
 Arcana Balancing Simulator
 천칭/증강/시너지/난이도 곡선 밸런싱 시뮬레이션 도구
 
-활용 에이전트: balance-designer, qa-engineer
+활용 에이전트: bd, qa
 """
 
 import json

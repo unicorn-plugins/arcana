@@ -32,13 +32,13 @@ forbidden_actions:
   - code_execute
 
 handoff:
-  - target: vfx-artist
+  - target: va
     when: 모션에 이펙트 추가 및 VFX 타이밍 조율이 필요할 때
     reason: VFX 제작 및 이펙트 스펙은 VFX 아티스트 전담
   - target: programmer
     when: Spine 애니메이션 Unity 연동 구현이 필요할 때
     reason: 코드 구현은 프로그래머 전담
-  - target: art-director
+  - target: ad
     when: 모션 스타일 가이드 승인 및 비주얼 방향성 확인이 필요할 때
     reason: 아트 표준 승인은 AD 권한
 

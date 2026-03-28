@@ -15,7 +15,7 @@ Unity URP 2D + Spine + Addressables 기반 기술 스택을 확정하고, 렌더
 
 ## 활성화 조건
 
-- 사용자가 `/arcana:td` 호출 시
+- 사용자가 `/arcana:td`, `/td`, `/tech` 중 하나를 호출 시
 - "기술", "엔진", "파이프라인", "렌더링", "성능 최적화", "Spine 연동", "Addressables", "드로우콜", "GC", "직렬화" 키워드 감지 시
 
 ## 에이전트 호출 규칙
@@ -24,7 +24,7 @@ Unity URP 2D + Spine + Addressables 기반 기술 스택을 확정하고, 렌더
 
 | 에이전트 | FQN |
 |----------|-----|
-| tech-director | `arcana:tech-director:tech-director` |
+| td | `arcana:td:td` |
 
 ### 프롬프트 조립
 
@@ -32,4 +32,4 @@ Unity URP 2D + Spine + Addressables 기반 기술 스택을 확정하고, 렌더
 
 ## 워크플로우 
 완료 보장이 필요하면 `/oh-my-claudecode:ralph`와 함께 사용
-1. 에이젼트 호출 -> Agent: tech-director
+1. 에이젼트 호출 -> Agent: td

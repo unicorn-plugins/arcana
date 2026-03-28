@@ -27,8 +27,8 @@ SFX 디자인을 상세화하고, 사운드 에셋 카탈로그를 생성/갱신
 
 | 항목 | 내용 |
 |------|------|
-| 에이전트 ID | `sound-director` |
-| FQN | `arcana:sound-director:sound-director` |
+| 에이전트 ID | `sd` |
+| FQN | `arcana:sd:sd` |
 | 담당자 | 주디 (김주연) |
 | Tier | MEDIUM (claude-sonnet-4-6) |
 | 산출물 | `output/design/sound_plan_{YYYYMMDD}.md`, `output/design/sfx_design_{YYYYMMDD}.md`, `output/design/sound_asset_catalog_{YYYYMMDD}.md` |
@@ -55,6 +55,6 @@ SFX 디자인을 상세화하고, 사운드 에셋 카탈로그를 생성/갱신
 ## 참조
 
 - 스킬 정의: `skills/sound/SKILL.md`
-- 에이전트: `agents/sound-director/AGENT.md`
+- 에이전트: `agents/sd/AGENT.md`
 - 산출물 위치: `output/design/`
-- 참조 문서: `resources/references/sound-director/`, `resources/초기자료/모션이펙트제안서_V0_김주연.md`
+- 참조 문서: `resources/references/sd/`, `resources/초기자료/모션이펙트제안서_V0_김주연.md`

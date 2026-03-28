@@ -3,7 +3,7 @@
 Arcana Game Data Schema Generator
 캐릭터/스킬/증강/몬스터/보스 JSON 스키마 생성 도구
 
-활용 에이전트: programmer, balance-designer
+활용 에이전트: programmer, bd
 """
 
 import json

@@ -205,7 +205,7 @@
 - `resources/references/external/pd/` 
 - `resources/references/external/sound-director/` 
 
-### project-manager
+### pm
 
 **내부문서:**
 - `resources/references/internal/시스템 문서/메인시스템_V2_이채연.md` — 코어 루프, 메타 루프
@@ -216,7 +216,7 @@
 **외부문서:**
 - `resources/references/external/project-manager/`
 
-### balance-designer
+### bd
 
 **내부문서:**
 - `resources/references/internal/컨셉 문서/스토리세계관컨셉_V1_장보성.md` — 세계관 정합성 기준
@@ -230,7 +230,7 @@
 **외부문서:**
 - `resources/references/external/balance-designer/`
 
-### art-director
+### ad
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/아트컨셉_V1_이채연.md` — 전체 아트 방향성
@@ -240,7 +240,7 @@
 **외부문서:**
 - `resources/references/external/art-director/`
 
-### character-artist
+### ca
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/캐릭터비주얼컨셉_V1_이채연.md` — 캐릭터별 비주얼 설정
@@ -251,7 +251,7 @@
 **외부문서:**
 - `resources/references/external/character-artist/`
 
-### background-artist
+### ba
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/배경컨셉_V0_이채연.md` — 4스테이지 배경 방향성
@@ -270,7 +270,7 @@
 **외부문서:**
 - `resources/references/external/animator/`
 
-### uiux-designer
+### ux
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/UI기획서_V6_장보성.md` — UI 레이아웃/HUD 구조
@@ -279,7 +279,7 @@
 **외부문서:**
 - `resources/references/external/uiux-designer/`
 
-### vfx-artist
+### va
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/모션이펙트제안서_V0_김주연.md` — 이펙트 연출 방향
@@ -289,7 +289,7 @@
 **외부문서:**
 - `resources/references/external/vfx-artist/`
 
-### tech-director
+### td
 
 **내부문서:**
 - `resources/references/internal/시스템 문서/메인시스템_V2_이채연.md` — 기술 요구사항 파악
@@ -310,7 +310,7 @@
 **외부문서:**
 - `resources/references/external/programmer/`
 
-### qa-engineer
+### qa
 
 **내부문서:**
 - `resources/references/internal/컨셉 문서/전투컨셉기획서_V4_장보성.md` — 전투 테스트 기준
@@ -319,7 +319,7 @@
 **외부문서:**
 - `resources/references/external/qa-engineer/`
 
-### sound-director
+### sd
 
 **내부문서:**
 - `resources/references/internal/비주얼 문서/모션이펙트제안서_V0_김주연.md` — 사운드-이펙트 싱크

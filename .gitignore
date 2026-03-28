@@ -4,3 +4,4 @@ __pycache__/
 .env
 output-raw/
 .dmap/secrets/
+resources/references/internal/*/images/

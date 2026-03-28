@@ -43,6 +43,11 @@ tool_mapping:
       source: "tools/art-pipeline-guide.py"
       tools: ["check_spec", "generate_guide"]
 
+  video_generate:
+    - type: custom
+      source: "tools/generate_video.py"
+      tools: ["generate_video", "extend_video"]
+
   diagram_validate:
     - type: custom
       source: "tools/check-mermaid-bridge.py"

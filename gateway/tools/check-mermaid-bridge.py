@@ -3,7 +3,7 @@
 Arcana Mermaid Diagram Validation Bridge
 Mermaid 다이어그램 문법 검증 도구
 
-활용 에이전트: pd, project-manager, uiux-designer
+활용 에이전트: pd, pm, ux
 """
 
 import json

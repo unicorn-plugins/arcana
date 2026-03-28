@@ -52,10 +52,10 @@
 ### Step 4: 크로스 역할 체크
 
 각 역할 에이전트의 산출물 디렉토리 확인:
-- `output/planning/` — pd, project-manager, balance-designer
-- `output/design/` — art-director, character-artist, background-artist, animator, uiux-designer, vfx-artist, sound-director
-- `output/build/` — programmer, tech-director
-- `output/deploy/` — qa-engineer
+- `output/planning/` — pd, pm, bd
+- `output/design/` — ad, ca, ba, animator, ux, va, sd
+- `output/build/` — programmer, td
+- `output/deploy/` — qa
 
 파트 간 의존성 확인 및 병목 식별. 복수 산출물의 정합성 검증.
 

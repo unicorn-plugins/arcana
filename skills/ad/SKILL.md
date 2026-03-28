@@ -15,7 +15,7 @@ user-invocable: true
 
 ## 활성화 조건
 
-- 사용자가 `/arcana:ad` 호출 시
+- 사용자가 `/arcana:ad`, `/ad`, `/art-director` 중 하나를 호출 시
 - "아트 스타일", "비주얼 가이드", "비주얼 아이덴티티", "카드 프레임", "카드 레이아웃", "아트 기획" 키워드 감지 시
 
 ## 에이전트 호출 규칙
@@ -24,7 +24,7 @@ user-invocable: true
 
 | 에이전트 | FQN |
 |----------|-----|
-| art-director | `arcana:art-director:art-director` |
+| ad | `arcana:ad:ad` |
 
 ### 프롬프트 조립
 
@@ -32,4 +32,4 @@ user-invocable: true
 
 ## 워크플로우  
 완료 보장이 필요하면 `/oh-my-claudecode:ralph`와 함께 사용
-1. 에이젼트 호출 -> Agent: art-director
+1. 에이젼트 호출 -> Agent: ad

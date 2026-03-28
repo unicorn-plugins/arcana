@@ -3,7 +3,7 @@
 Arcana Sound Asset Catalog
 BGM/SFX 에셋 목록 및 상태 관리 도구
 
-활용 에이전트: sound-director
+활용 에이전트: sd
 """
 
 import json

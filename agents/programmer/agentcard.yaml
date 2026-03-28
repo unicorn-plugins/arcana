@@ -8,13 +8,13 @@ capabilities:
   restrictions:
     forbidden_actions: []
 handoff:
-  - target: qa-engineer
+  - target: qa
     when: "구현 완료 후 테스트 및 검증 필요 시"
     reason: "테스트 수행은 QA 전담"
-  - target: tech-director
+  - target: td
     when: "기술 의사결정 또는 아키텍처 검토 필요 시"
     reason: "기술 설계는 TD 권한"
-  - target: balance-designer
+  - target: bd
     when: "수치 데이터 확인 또는 밸런싱 데이터 시트 갱신 필요 시"
     reason: "수치 분석은 밸런싱 전담"
 persona:

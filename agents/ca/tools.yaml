@@ -1,0 +1,12 @@
+tools:
+  - name: generate_image
+    description: "캐릭터 컨셉 참고 이미지 생성 (캐릭터 실루엣, 포즈 가이드, 의상 레퍼런스)"
+    mcp_server: generate_image
+    usage:
+      - "캐릭터별 실루엣 + 색상 팔레트 조합 이미지 생성"
+      - "정방향/역방향 포즈 비교 컨셉 이미지 생성"
+      - "중세 의상 + 타로 도상 결합 캐릭터 컨셉 이미지 생성"
+
+# 근거: ca 에이전트는 캐릭터 원화 기획 역할이므로
+# generate_image로 캐릭터 컨셉 참고 이미지를 생성하여 디자인 방향성을 구체화한다.
+# forbidden_actions: ["code_execute"] — 코드 실행 도구(Bash)는 사용 불가.

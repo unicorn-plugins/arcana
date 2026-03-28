@@ -15,7 +15,7 @@ user-invocable: true
 
 ## 활성화 조건
 
-- 사용자가 `/arcana:pm` 호출 시
+- 사용자가 `/arcana:pm`, `/pm`, `/manager` 중 하나를 호출 시
 - "일정", "마일스톤", "스프린트", "WBS", "리스크 레지스터", "시스템 스펙", "기획 문서" 키워드 감지 시
 
 ## 에이전트 호출 규칙
@@ -24,7 +24,7 @@ user-invocable: true
 
 | 에이전트 | FQN |
 |----------|-----|
-| project-manager | `arcana:project-manager:project-manager` |
+| pm | `arcana:pm:pm` |
 
 ### 프롬프트 조립
 
@@ -32,4 +32,4 @@ user-invocable: true
 
 ## 워크플로우 
 완료 보장이 필요하면 `/oh-my-claudecode:ralph`와 함께 사용
-1. 에이젼트 호출 -> Agent: project-manager
+1. 에이젼트 호출 -> Agent: pm
