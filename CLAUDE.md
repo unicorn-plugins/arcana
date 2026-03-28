@@ -14,22 +14,22 @@
 5. 스킬 활성화: 사용자가 아래 명령어 중 하나 또는 자연어 키워드를 입력하면, 해당 `skills/{역할}/SKILL.md`를 먼저 읽고 정의된 워크플로우를 따른다.
 
 [스킬 명령어 매핑표]
-| 스킬 | 정식 명령 | 단축 명령 |
-|------|----------|-----------|
-| 프로젝트 디렉터 | `@arcana:pd` | `@pd`, `@director` |
-| 프로젝트 매니저 | `@arcana:pm` | `@pm`, `@manager` |
-| 밸런싱 기획 | `@arcana:bd` | `@bd`, `@balancing` |
-| 캐릭터 아트 | `@arcana:ca` | `@ca`, `@char` |
-| 아트 디렉터 | `@arcana:ad` | `@ad`, `@art-director` |
-| 배경 아트 | `@arcana:ba` | `@ba`, `@bg` |
-| 애니메이션 | `@arcana:animator` | `@animator`, `@animation` |
-| UI/UX | `@arcana:ux` | `@ux`, `@ui` |
-| VFX | `@arcana:va` | `@va`, `@effect` |
-| 사운드 | `@arcana:sd` | `@sd`, `@audio` |
-| 프로그래밍 | `@arcana:programmer` | `@programmer`, `@program` |
-| 테크 디렉터 | `@arcana:td` | `@td`, `@tech` |
-| QA | `@arcana:qa` | `@qa`, `@tester` |
-| 도움말 | `@arcana:help` | `@help` |
+| 스킬 | 호출명령 |
+|------|---------|
+| 프로젝트 디렉터 | `@주디`, `@주연`, `@pd` |
+| 프로젝트 매니저 | `@체리`, `@채연`, `@pm` |
+| 밸런싱 기획 | `@보스`, `@보성`, `@bd` |
+| 캐릭터 아트 | `@아트트리오`, `@유빈`, `@ca` |
+| 아트 디렉터 | `@송이`, `@송희`, `@ad` |
+| 배경 아트 | `@령`, `@예령`, `@ba` |
+| 애니메이션 | `@모션듀오`, `@가현`, `@animator` |
+| UI/UX | `@밍키`, `@민경`, `@ux` |
+| VFX | `@니니`, `@현희`, `@va` |
+| 사운드 | `@주디`, `@주연`, `@sd` |
+| 프로그래밍 | `@진`, `@윤진`, `@programmer` |
+| 테크 디렉터 | `@우디`, `@윤우`, `@td` |
+| QA | `@보니`, `@보현`, `@qa` |
+| 도움말 | `@help` |
 
 * 디렉토리 구조:
   - skills/{역할}/SKILL.md — 스킬 정의 (활성화 조건, 에이전트 FQN, 워크플로우)
